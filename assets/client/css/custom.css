@@ -1,0 +1,39 @@
+@font-face {
+    font-family: myFont;
+    src: url("../fonts/Roboto-Regular.ttf");
+}
+
+body {
+    font-size: 13px;
+}
+
+body, a, h1, h2, h3, h4, h5, h6, p {
+    font-family: myFont !important;
+}
+
+.articles {
+    margin-top: 3em;
+}
+
+h3 {
+    font-size: 2em !important;
+}
+
+.life-style-left-grid {
+    padding: 5px;
+    margin-right: 2%;
+}
+
+p.summary {
+    margin-top: 10px;
+}
+
+.italic {
+    font-style: italic;
+}
+.title-small {
+    font-size: 20px !important;
+}
+a.title {
+    font-size: 1.7em !important;
+}
