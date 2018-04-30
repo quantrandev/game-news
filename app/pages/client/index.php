@@ -39,7 +39,7 @@ include "templates/header.php";
                                                 class="glyphicon glyphicon-eye-open"></span><?php echo $new["views"]; ?>
                                     </a></p>
                                 <h5>
-                                    <a class="title" href="single.html"><?php echo $new["title"]; ?></a>
+                                    <a class="title" href="/game-news/app/pages/client/news/single.php?id=<?php echo $new["id"]; ?>"><?php echo $new["title"]; ?></a>
                                 </h5>
                             </div>
                             <div class="article-text">

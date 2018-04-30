@@ -23,6 +23,16 @@ class NewsService
         return $news;
     }
 
+    public function get($id)
+    {
+        $query = "select * from news where id = " . $id;
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+
+        $news = $stmt->fetch();
+        return $news;
+    }
+
     public function getWithCategory($offset, $take, $category)
     {
         $query = "select * from news where categoryId = " . $category . " order by createdAt desc limit " . $take . " offset " . $offset;
