@@ -48,7 +48,12 @@ include '../templates/navigation.php';
                             <span class="badge badge-info"><?php echo $role["name"]; ?></span>
                         <?php endforeach; ?>
                     </td>
-                    <td style="width: 180px">
+                    <td style="width: 300px">
+                        <a class="btn btn-info"
+                           href="/game-news/app/pages/admin/user/authorize.php?id=<?php echo $user->userName; ?>">
+                            <i class="fa fa-bolt"></i>
+                            Phân quyền
+                        </a>
                         <a class="btn btn-primary"
                            href="/game-news/app/pages/admin/user/edit.php?id=<?php echo $user->userName; ?>">
                             <i class="fa fa-pencil"></i>
