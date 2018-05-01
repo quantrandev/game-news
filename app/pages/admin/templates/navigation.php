@@ -50,10 +50,10 @@ $userRoles = $userService->getRoles(unserialize($_SESSION["user"])["userName"]);
                     </a>
                     <ul class="sidenav-second-level collapse" id="categories">
                         <li>
-                            <a href="navbar.html">Thêm chuyên mục</a>
+                            <a href="/game-news/app/pages/admin/category/add.php">Thêm chuyên mục</a>
                         </li>
                         <li>
-                            <a href="cards.html">Danh sách chuyên mục</a>
+                            <a href="/game-news/app/pages/admin/category/list.php">Danh sách chuyên mục</a>
                         </li>
                     </ul>
                 </li>
