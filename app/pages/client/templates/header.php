@@ -37,10 +37,10 @@
 
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="index.html">HOME</a></li>
+                            <li class="active"><a href="/game-news/app/pages/client/">HOME</a></li>
                             <?php foreach ($categories as $category): ?>
                                 <li>
-                                    <a href="/game-news/app/pages/news/list.php?id=<?php echo $category["id"]; ?>"><?php echo $category["name"]; ?></a>
+                                    <a href="/game-news/app/pages/client/news/list.php?id=<?php echo $category["id"]; ?>"><?php echo $category["name"]; ?></a>
                                 </li>
                             <?php endforeach; ?>
                         </ul>

@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ccb90c92-7133-45c4-8cf5-489a49257692" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/pages/client/news/list.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/client/news/single.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/client/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/client/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pages/client/news/list.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/client/news/list.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pages/client/templates/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/client/templates/header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/services/newsService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/newsService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/client/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/client/css/custom.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,8 +20,8 @@
       <file leaf-file-name="custom.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/client/css/custom.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+            <state relative-caret-position="468">
+              <caret line="40" column="26" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -30,31 +30,28 @@
         <entry file="file://$PROJECT_DIR$/app/services/newsService.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="408">
-              <caret line="31" column="31" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
+              <caret line="68" column="42" selection-start-line="68" selection-start-column="42" selection-end-line="68" selection-end-column="42" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="list.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="list.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/pages/client/news/list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+            <state relative-caret-position="280">
+              <caret line="42" column="17" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
               <folding>
-                <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" />
+                <element signature="n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fashion.html" pinned="false" current-in-tab="false">
-        <entry file="file://D:/Study/Web Development/Front-end/Template/web/fashion.html">
+      <file leaf-file-name="header.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/pages/client/templates/header.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="191" column="4" selection-start-line="191" selection-start-column="4" selection-end-line="870" selection-end-column="14" />
-              <folding>
-                <element signature="n#div#2;n#body#0;n#html#0;n#!!top" />
-              </folding>
+            <state relative-caret-position="280">
+              <caret line="39" column="84" selection-start-line="39" selection-start-column="84" selection-end-line="39" selection-end-column="84" />
             </state>
           </provider>
         </entry>
@@ -66,10 +63,13 @@
       <find>date</find>
       <find>[&quot;title&quot;], 0, 45</find>
       <find>$new</find>
+      <find>/game-news/app/pages/news/</find>
+      <find>date(</find>
     </findStrings>
     <replaceStrings>
       <replace>[&quot;title&quot;], 0, 80</replace>
       <replace>$post</replace>
+      <replace>/game-news/app/pages/client/news/</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -84,14 +84,14 @@
         <option value="$PROJECT_DIR$/app/pages/client/templates/footer.php" />
         <option value="$PROJECT_DIR$/app/pages/client/templates/head.php" />
         <option value="$PROJECT_DIR$/app/services/categoryService.php" />
-        <option value="$PROJECT_DIR$/app/pages/client/templates/header.php" />
-        <option value="$PROJECT_DIR$/assets/client/css/custom.css" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/app/pages/client/index.php" />
         <option value="$PROJECT_DIR$/app/pages/client/single.php" />
-        <option value="$PROJECT_DIR$/app/services/newsService.php" />
         <option value="$PROJECT_DIR$/app/pages/client/news/single.php" />
+        <option value="$PROJECT_DIR$/assets/client/css/custom.css" />
+        <option value="$PROJECT_DIR$/app/services/newsService.php" />
         <option value="$PROJECT_DIR$/app/pages/client/news/list.php" />
+        <option value="$PROJECT_DIR$/app/pages/client/templates/header.php" />
       </list>
     </option>
   </component>
@@ -188,18 +188,19 @@
       <updated>1525051370899</updated>
       <workItem from="1525051372457" duration="599000" />
       <workItem from="1525074243830" duration="11263000" />
-      <workItem from="1525096324863" duration="5465000" />
+      <workItem from="1525096324863" duration="5833000" />
+      <workItem from="1525141337614" duration="1763000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17327000" />
+    <option name="totallyTimeSpent" value="19458000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24963397" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24963397" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -227,6 +228,40 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/assets/client/css/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/services/newsService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="620">
+          <caret line="31" column="31" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Study/Web Development/Front-end/Template/web/fashion.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3820">
+          <caret line="191" column="4" selection-start-line="191" selection-start-column="4" selection-end-line="870" selection-end-column="14" />
+          <folding>
+            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/client/news/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="24" column="36" lean-forward="true" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+          <folding>
+            <element signature="n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/client/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
@@ -284,13 +319,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/client/templates/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="75" column="33" selection-start-line="75" selection-start-column="33" selection-end-line="75" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -302,53 +330,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="116">
           <caret line="761" column="10" lean-forward="true" selection-start-line="191" selection-start-column="4" selection-end-line="761" selection-end-column="10" />
-          <folding>
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/client/single.php">
+    <entry file="file://$PROJECT_DIR$/app/pages/client/single.php" />
+    <entry file="file://$PROJECT_DIR$/app/pages/client/news/single.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" lean-forward="true" selection-end-line="594" />
-          <folding>
-            <element signature="n#div#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/services/newsService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="31" column="31" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/client/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" column="43" lean-forward="true" selection-start-line="8" selection-start-column="38" selection-end-line="10" selection-end-column="43" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#!!top" />
-            <element signature="n#section#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" />
-            <element signature="n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/client/css/custom.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+        <state relative-caret-position="141">
+          <caret line="161" column="12" selection-start-line="161" selection-start-column="12" selection-end-line="249" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://D:/Study/Web Development/Front-end/Template/web/fashion.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
+        <state relative-caret-position="20">
           <caret line="191" column="4" selection-start-line="191" selection-start-column="4" selection-end-line="870" selection-end-column="14" />
           <folding>
             <element signature="n#div#2;n#body#0;n#html#0;n#!!top" />
@@ -356,23 +351,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/client/news/single.php">
+    <entry file="file://$PROJECT_DIR$/../sports-shop-final/app/services/orderService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="161" column="12" selection-start-line="161" selection-start-column="12" selection-end-line="249" selection-end-column="18" />
+        <state relative-caret-position="343">
+          <caret line="108" column="38" lean-forward="true" selection-start-line="106" selection-start-column="8" selection-end-line="108" selection-end-column="38" />
           <folding>
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#add#0;n#OrderService#0;n#!!top" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../sports-shop-final/app/pages/client/product/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="173" column="33" lean-forward="true" selection-start-line="118" selection-start-column="28" selection-end-line="173" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/client/css/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="40" column="26" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/services/newsService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="68" column="42" selection-start-line="68" selection-start-column="42" selection-end-line="68" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/client/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="34" column="101" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="101" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/client/news/list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="280">
+          <caret line="42" column="17" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
           <folding>
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/client/templates/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="39" column="84" selection-start-line="39" selection-start-column="84" selection-end-line="39" selection-end-column="84" />
         </state>
       </provider>
     </entry>
