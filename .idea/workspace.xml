@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ccb90c92-7133-45c4-8cf5-489a49257692" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/pages/admin/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/pages/client/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/client/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/client/news/list.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/client/news/list.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/client/news/single.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/client/news/single.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/client/templates/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/client/templates/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/client/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/client/css/custom.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,32 +13,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="custom.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="custom.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/client/css/custom.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="90" column="18" selection-start-line="90" selection-start-column="18" selection-end-line="90" selection-end-column="18" />
+            <state relative-caret-position="428">
+              <caret line="95" column="1" lean-forward="true" selection-start-line="95" selection-start-column="1" selection-end-line="95" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="newsService.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/services/newsService.php">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/pages/client/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="57" column="17" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="list.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/pages/client/news/list.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="128" column="75" selection-start-line="128" selection-start-column="75" selection-end-line="128" selection-end-column="75" />
-              <folding>
-                <element signature="e#1023#5063#0#PHP" />
-              </folding>
+            <state relative-caret-position="339">
+              <caret line="202" column="97" selection-start-line="202" selection-start-column="97" selection-end-line="202" selection-end-column="97" />
+              <caret line="208" column="97" selection-start-line="208" selection-start-column="97" selection-end-line="208" selection-end-column="97" />
+              <caret line="237" column="97" selection-start-line="237" selection-start-column="97" selection-end-line="237" selection-end-column="97" />
+              <caret line="243" column="97" selection-start-line="243" selection-start-column="97" selection-end-line="243" selection-end-column="97" />
             </state>
           </provider>
         </entry>
@@ -92,11 +77,11 @@
         <option value="$PROJECT_DIR$/app/pages/client/single.php" />
         <option value="$PROJECT_DIR$/app/services/newsService.php" />
         <option value="$PROJECT_DIR$/app/pages/client/templates/header.php" />
-        <option value="$PROJECT_DIR$/app/pages/client/index.php" />
         <option value="D:/Study/Web Development/Front-end/Template/web/fashion.html" />
         <option value="$PROJECT_DIR$/app/pages/client/news/single.php" />
         <option value="$PROJECT_DIR$/app/pages/client/news/list.php" />
         <option value="$PROJECT_DIR$/assets/client/css/custom.css" />
+        <option value="$PROJECT_DIR$/app/pages/client/index.php" />
       </list>
     </option>
   </component>
@@ -201,12 +186,12 @@
       <workItem from="1525051372457" duration="599000" />
       <workItem from="1525074243830" duration="11263000" />
       <workItem from="1525096324863" duration="5833000" />
-      <workItem from="1525141337614" duration="7299000" />
+      <workItem from="1525141337614" duration="7753000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24994000" />
+    <option name="totallyTimeSpent" value="25448000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -363,13 +348,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/client/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="66" column="226" selection-start-line="66" selection-start-column="226" selection-end-line="66" selection-end-column="226" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/admin/index.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -431,8 +409,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/client/css/custom.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="90" column="18" selection-start-line="90" selection-start-column="18" selection-end-line="90" selection-end-column="18" />
+        <state relative-caret-position="428">
+          <caret line="95" column="1" lean-forward="true" selection-start-line="95" selection-start-column="1" selection-end-line="95" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/client/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="202" column="97" selection-start-line="202" selection-start-column="97" selection-end-line="202" selection-end-column="97" />
+          <caret line="208" column="97" selection-start-line="208" selection-start-column="97" selection-end-line="208" selection-end-column="97" />
+          <caret line="237" column="97" selection-start-line="237" selection-start-column="97" selection-end-line="237" selection-end-column="97" />
+          <caret line="243" column="97" selection-start-line="243" selection-start-column="97" selection-end-line="243" selection-end-column="97" />
         </state>
       </provider>
     </entry>
