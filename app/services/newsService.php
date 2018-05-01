@@ -9,6 +9,7 @@ class NewsService
         $this->db = $db;
     }
 
+    //read
     public function all($offset, $take)
     {
         $query = "select * from news order by id desc limit " . $take . " offset " . $offset;
@@ -82,6 +83,38 @@ class NewsService
         }
 
         return $news;
+    }
+
+    //update
+    public function update($id, $columns)
+    {
+        $sql = "update news set ";
+
+        if (!empty($columns["categoryId"]))
+            $sql .= "categoryId = " . $columns["categoryId"] . ",";
+        if (!empty($columns["name"]))
+            $sql .= "name = N'" . $columns["name"] . "',";
+        if (!empty($columns["basicPrice"]))
+            $sql .= "basicPrice = " . $columns["basicPrice"] . ",";
+        if (!empty($columns["description"]))
+            $sql .= "description = '" . $columns["description"] . "',";
+
+        $sql = substr(trim($sql), 0, strlen($sql) - 1) . " where id = '" . $id . "'";
+        $result = $this->db->exec($sql);
+        return empty($result) ? false : true;
+    }
+
+    public function view($id)
+    {
+        //get views
+        $query = "select views from news where id = " . $id;
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->fetch();
+
+        //update views
+        $query = "update news set views = " . (intval($result["views"]) + 1) . " where id = " . $id;
+        $this->db->exec($query);
     }
 }
 

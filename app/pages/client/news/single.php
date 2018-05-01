@@ -19,6 +19,8 @@ $postInSameCategory = $newsService->getWithCategory(0, 4, $post["categoryId"]);
 $relatedPosts = array_filter($postInSameCategory, function ($value) use ($post) {
     return $value["id"] != $post["id"];
 });
+
+
 include "../templates/head.php";
 include "../templates/header.php";
 
@@ -30,13 +32,16 @@ include "../templates/header.php";
             <div class="col-md-8 content-left single-post">
                 <div class="blog-posts">
                     <h3 class="post"><?php echo $post["title"]; ?></h3>
-                    <p class="italic m-b-15"><?php echo $post["summary"]; ?></p>
+                    <p><b><?php echo $post["author"]; ?></b>
+                        - <?php echo date('d/m/Y h:i:s', strtotime($post["createdAt"])); ?></p>
+                    <p class="italic m-t-15 m-b-15"><?php echo $post["summary"]; ?></p>
                     <div class="last-article">
                         <?php echo $post["content"]; ?>
                         <div class="clearfix"></div>
 
                         <div class="response">
-                            <h4>Responses</h4>
+                            <hr>
+                            <h4>Bình luận</h4>
                             <div class="media response-info">
                                 <div class="media-left response-text-left">
                                     <a href="#">
@@ -260,6 +265,20 @@ include "../templates/header.php";
 <?php
 include "../templates/footer.php";
 ?>
+
+<script>
+    $.ajax({
+        url: '/game-news/app/controllers/client.php',
+        type: 'post',
+        data: {function: 'view', postId: '<?php echo $_GET["id"];?>'},
+        success: function (res) {
+            console.log(res);
+        },
+        error: function (err) {
+
+        }
+    });
+</script>
 
 <?php
 include "../templates/end.php";
