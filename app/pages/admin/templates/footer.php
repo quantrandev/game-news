@@ -42,4 +42,7 @@
 <!-- Custom scripts for this page-->
 <script src="/game-news/assets/admin/js/sb-admin-datatables.min.js"></script>
 <script src="/game-news/assets/admin/js/sb-admin-charts.min.js"></script>
+
+<script src="/game-news/assets/admin/ckeditor/ckeditor.js"></script>
+<script src="/game-news/assets/admin/ckfinder/ckfinder.js"></script>
 </div>

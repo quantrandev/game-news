@@ -31,10 +31,10 @@ $userRoles = $userService->getRoles(unserialize($_SESSION["user"])["userName"]);
                     </a>
                     <ul class="sidenav-second-level collapse" id="news">
                         <li>
-                            <a href="navbar.html">Thêm bài viết</a>
+                            <a href="/game-news/app/pages/admin/post/add.php">Thêm bài viết</a>
                         </li>
                         <li>
-                            <a href="cards.html">Danh sách bài viết</a>
+                            <a href="/game-news/app/pages/admin/post/list.php">Danh sách bài viết</a>
                         </li>
                     </ul>
                 </li>

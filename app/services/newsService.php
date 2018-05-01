@@ -116,6 +116,24 @@ class NewsService
         $query = "update news set views = " . (intval($result["views"]) + 1) . " where id = " . $id;
         $this->db->exec($query);
     }
+
+    //create
+    public function insert($data)
+    {
+        $title = $data["title"];
+        $summary = $data["summary"];
+        $image = $data["image"];
+        $categoryId = $data["categoryId"];
+        $content = $data["content"];
+        $author = $data["author"];
+        $createdAt = $data["createdAt"];
+
+        $query = "insert into news (title, image, summary, categoryId, content, author, createdAt) values ("
+            . "N'" . $title . "', '" . $image . "', N'" . $summary . "', " . $categoryId . ",N'" . $content . "', N'" . $author . "', '" . $createdAt . "')";
+
+        $result = $this->db->exec($query);
+        return empty($result) ? false : true;
+    }
 }
 
 ?>
