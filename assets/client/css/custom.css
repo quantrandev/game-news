@@ -31,12 +31,66 @@ p.summary {
 .italic {
     font-style: italic;
 }
+
 .title-small {
     font-size: 20px !important;
 }
+
 a.title {
     font-size: 1.7em !important;
 }
+
 .store-pages {
     list-style-type: none;
+}
+
+.list-title {
+    font-size: 1.5em !important;
+}
+
+a.my-thumbnail {
+    display: block;
+    height: 250px;
+}
+
+a.my-thumbnail > img {
+    height: 100%;
+}
+
+.VCSortableInPreviewMode {
+    width: 100%;
+}
+
+.VCSortableInPreviewMode > div:first-child {
+    padding: 20px;
+    text-align: center;
+}
+
+.VCSortableInPreviewMode > div:first-child > div {
+    display: inline-block;
+}
+
+.VCSortableInPreviewMode > div:first-child > img {
+    max-width: 100%;
+}
+
+.m-b-15 {
+    margin-bottom: 15px !important;
+}
+
+.last-article p {
+    padding: 7px 0;
+}
+
+ul.store-pages {
+    float: right;
+}
+
+ul.store-pages li {
+    display: inline-block;
+    margin: 0 7px;
+}
+
+ul.store-pages li.active {
+    font-weight: 800;
 }

@@ -64,7 +64,7 @@ include "templates/header.php";
                                         src="/game-news/assets/<?php echo $news1[$i]["image"]; ?>"
                                         alt="<?php echo $news1[$i]["title"]; ?>"/></a>
                             <a class="title title-small"
-                               href="/game-news/app/pages/client/single.php?id=<?php echo $news1[$i]["id"]; ?>"><?php echo $news1[$i]["title"]; ?></a>
+                               href="/game-news/app/pages/client/single.php?id=<?php echo $news1[$i]["id"]; ?>"><?php echo strlen($news1[0]["title"]) > 60 ? mb_substr($news1[0]["title"], 0, 60) . "..." : $news1[0]["title"]; ?></a>
                             <p class="summary">
                             <p>
                                 <small class="italic"><?php echo date('d-m-Y - h:i:s', strtotime($new["createdAt"])); ?></small>
@@ -82,7 +82,7 @@ include "templates/header.php";
                                         src="/game-news/assets/<?php echo $news1[$i]["image"]; ?>"
                                         alt="<?php echo $news1[$i]["title"]; ?>"/></a>
                             <a class="title title-small"
-                               href="/game-news/app/pages/client/single.php?id=<?php echo $news1[$i]["id"]; ?>"><?php echo $news1[$i]["title"]; ?></a>
+                               href="/game-news/app/pages/client/single.php?id=<?php echo $news1[$i]["id"]; ?>"><?php echo strlen($news1[0]["title"]) > 60 ? mb_substr($news1[0]["title"], 0, 60) . "..." : $news1[0]["title"]; ?></a>
                             <p class="summary">
                             <p>
                                 <small class="italic"><?php echo date('d-m-Y - h:i:s', strtotime($new["createdAt"])); ?></small>
@@ -108,7 +108,7 @@ include "templates/header.php";
                             </div>
                             <div class="c-text">
                                 <a class="power"
-                                   href="/game-news/app/pages/client/single.php?id=<?php echo $news2[0]["id"] ?>"><?php echo strlen($news2[0]["title"]) > 80 ? substr($news2[0]["title"], 0, 80) . "..." : $news2[0]["title"]; ?></a>
+                                   href="/game-news/app/pages/client/single.php?id=<?php echo $news2[0]["id"] ?>"><?php echo strlen($news2[0]["title"]) > 60 ? mb_substr($news2[0]["title"], 0, 60) . "..." : $news2[0]["title"]; ?></a>
                                 <p class="date"><?php echo date('d-m-Y - h:i:s', strtotime($news2[0]["createdAt"])); ?></p>
                                 <a class="reu"
                                    href="/game-news/app/pages/client/single.php?id=<?php echo $news2[0]["id"] ?>"><img
@@ -126,7 +126,7 @@ include "templates/header.php";
                                 </div>
                                 <div class="sc-text">
                                     <a class="power"
-                                       href="/game-news/app/pages/client/single.php?id=<?php echo $news2[$i]["id"] ?>"><?php echo strlen($news2[$i]["title"]) > 80 ? substr($news2[$i]["title"], 0, 80) . "..." : $news2[$i]["title"]; ?></a>
+                                       href="/game-news/app/pages/client/single.php?id=<?php echo $news2[$i]["id"] ?>"><?php echo strlen($news2[$i]["title"]) > 60 ? mb_substr($news2[$i]["title"], 0, 60) . "..." : $news2[$i]["title"]; ?></a>
                                     <p class="date"><?php echo date('d-m-Y - h:i:s', strtotime($news2[$i]["createdAt"])); ?></p>
                                     <a class="reu"
                                        href="/game-news/app/pages/client/single.php?id=<?php echo $news2[$i]["id"] ?>"><img
@@ -151,7 +151,7 @@ include "templates/header.php";
                             </div>
                             <div class="c-text">
                                 <a class="power"
-                                   href="/game-news/app/pages/client/single.php?id=<?php echo $news3[0]["id"] ?>"><?php echo strlen($news3[0]["title"]) > 80 ? substr($news3[0]["title"], 0, 80) . "..." : $news3[0]["title"]; ?></a>
+                                   href="/game-news/app/pages/client/single.php?id=<?php echo $news3[0]["id"] ?>"><?php echo strlen($news3[0]["title"]) > 60 ? mb_substr($news3[0]["title"], 0, 60) . "..." : $news3[0]["title"]; ?></a>
                                 <p class="date"><?php echo date('d-m-Y - h:i:s', strtotime($news3[0]["createdAt"])); ?></p>
                                 <a class="reu"
                                    href="/game-news/app/pages/client/single.php?id=<?php echo $news3[0]["id"] ?>"><img
@@ -169,7 +169,7 @@ include "templates/header.php";
                                 </div>
                                 <div class="sc-text">
                                     <a class="power"
-                                       href="/game-news/app/pages/client/single.php?id=<?php echo $news3[$i]["id"] ?>"><?php echo strlen($news3[$i]["title"]) > 80 ? substr($news3[$i]["title"], 0, 80) . "..." : $news3[$i]["title"];; ?></a>
+                                       href="/game-news/app/pages/client/single.php?id=<?php echo $news3[$i]["id"] ?>"><?php echo strlen($news3[$i]["title"]) > 60 ? mb_substr($news3[$i]["title"], 0, 60) . "..." : $news3[$i]["title"];; ?></a>
                                     <p class="date"><?php echo date('d-m-Y - h:i:s', strtotime($news3[$i]["createdAt"])); ?></p>
                                     <a class="reu"
                                        href="/game-news/app/pages/client/single.php?id=<?php echo $news3[$i]["id"] ?>"><img

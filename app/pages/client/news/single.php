@@ -6,7 +6,7 @@ include "../../../services/categoryService.php";
 $categoryService = new CategoryService($conn);
 $categories = $categoryService->all();
 
-$newsService= new NewsService($conn);
+$newsService = new NewsService($conn);
 $latestNews = $newsService->all(0, 5);
 $mostViews = $newsService->mostViews(0, 5);
 
@@ -30,6 +30,7 @@ include "../templates/header.php";
             <div class="col-md-8 content-left single-post">
                 <div class="blog-posts">
                     <h3 class="post"><?php echo $post["title"]; ?></h3>
+                    <p class="italic m-b-15"><?php echo $post["summary"]; ?></p>
                     <div class="last-article">
                         <?php echo $post["content"]; ?>
                         <div class="clearfix"></div>
@@ -167,7 +168,9 @@ include "../templates/header.php";
                         </header>
                         <ul>
                             <?php foreach ($categories as $category): ?>
-                                <li><a href="/game-news/app/pages/client/news/list.php?id=<?php echo $category["id"];?>"><?php echo $category["name"];?></a></li>
+                                <li>
+                                    <a href="/game-news/app/pages/client/news/list.php?id=<?php echo $category["id"]; ?>"><?php echo $category["name"]; ?></a>
+                                </li>
                             <?php endforeach; ?>
                         </ul>
                     </div>
@@ -185,13 +188,13 @@ include "../templates/header.php";
                                                 <?php foreach ($mostViews as $new): ?>
                                                     <div class="popular-post-grid">
                                                         <div class="post-img">
-                                                            <a href="/game-news/app/pages/client/single.php?id=<?php echo $new["id"]; ?>"><img
+                                                            <a href="/game-news/app/pages/client/news/single.php?id=<?php echo $new["id"]; ?>"><img
                                                                         src="/game-news/assets/<?php echo $new["image"]; ?>"
                                                                         alt="<?php echo $new["title"]; ?>"/></a>
                                                         </div>
                                                         <div class="post-text">
                                                             <a class="pp-title"
-                                                               href="/game-news/app/pages/client/single.php?id=<?php echo $new["id"]; ?>"><?php echo $new["title"]; ?></a>
+                                                               href="/game-news/app/pages/client/news/single.php?id=<?php echo $new["id"]; ?>"><?php echo $new["title"]; ?></a>
                                                             <p><?php echo date('d-m-Y - h:i:s', strtotime($new["createdAt"])); ?>
                                                                 <a class="span_link" href="#"><span
                                                                             class="glyphicon glyphicon-comment"></span>0</a><a
@@ -220,13 +223,13 @@ include "../templates/header.php";
                                                 <?php foreach ($latestNews as $new): ?>
                                                     <div class="popular-post-grid">
                                                         <div class="post-img">
-                                                            <a href="/game-news/app/pages/client/single.php?id=<?php echo $new["id"]; ?>"><img
+                                                            <a href="/game-news/app/pages/client/news/single.php?id=<?php echo $new["id"]; ?>"><img
                                                                         src="/game-news/assets/<?php echo $new["image"]; ?>"
                                                                         alt="<?php echo $new["title"]; ?>"/></a>
                                                         </div>
                                                         <div class="post-text">
                                                             <a class="pp-title"
-                                                               href="/game-news/app/pages/client/single.php?id=<?php echo $new["id"]; ?>"><?php echo $new["title"]; ?></a>
+                                                               href="/game-news/app/pages/client/news/single.php?id=<?php echo $new["id"]; ?>"><?php echo $new["title"]; ?></a>
                                                             <p><?php echo date('d-m-Y - h:i:s', strtotime($new["createdAt"])); ?>
                                                                 <a class="span_link" href="#"><span
                                                                             class="glyphicon glyphicon-comment"></span>0</a><a
