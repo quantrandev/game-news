@@ -16,4 +16,5 @@
     <link href="/game-news/assets/admin/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="/game-news/assets/admin/css/sb-admin.css" rel="stylesheet">
+    <link href="/game-news/assets/admin/css/custom.css" rel="stylesheet">
 </head>

@@ -1,0 +1,9 @@
+
+ul.store-pages {
+    float: right;
+}
+
+ul.store-pages li {
+    display: inline-block;
+    margin: 0 7px;
+}
