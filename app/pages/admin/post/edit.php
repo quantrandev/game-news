@@ -52,6 +52,10 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
         }
     }
 }
+$queryStringArr = array();
+parse_str($_SERVER["QUERY_STRING"], $queryStringArr);
+unset($queryStringArr["id"]);
+$queryString = http_build_query($queryStringArr);
 
 include '../templates/head.php';
 include '../templates/navigation.php';
@@ -122,7 +126,8 @@ include '../templates/navigation.php';
             </div>
             <div class="form-group">
                 <button class="btn btn-primary" type="submit">Lưu thay đổi</button>
-                <a class="btn btn-secondary" href="<?php echo $_GET["returnUrl"]; ?>">Quay lại danh sách</a>
+                <a class="btn btn-secondary"
+                   href="/game-news/app/pages/admin/post/list.php?<?php echo $queryString; ?>">Quay lại danh sách</a>
             </div>
         </form>
     </div>

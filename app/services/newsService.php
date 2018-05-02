@@ -12,7 +12,7 @@ class NewsService
     //read
     public function all($offset, $take)
     {
-        $query = "select * from news order by id desc limit " . $take . " offset " . $offset;
+        $query = "select * from news where isActive = 1 order by id desc limit " . $take . " offset " . $offset;
         $stmt = $this->db->prepare($query);
         $stmt->execute();
 
@@ -36,7 +36,7 @@ class NewsService
 
     public function getWithCategory($offset, $take, $category)
     {
-        $query = "select * from news where categoryId = " . $category . " order by createdAt desc limit " . $take . " offset " . $offset;
+        $query = "select * from news where categoryId = " . $category . " and isActive = 1 order by createdAt desc limit " . $take . " offset " . $offset;
         $stmt = $this->db->prepare($query);
         $stmt->execute();
 
@@ -50,7 +50,7 @@ class NewsService
 
     public function getByCategoryWithPaging($page, $pageSize, $category)
     {
-        $query = "select * from news where categoryId = " . $category . " order by createdAt desc " .
+        $query = "select * from news where categoryId = " . $category . " and isActive = 1 order by createdAt desc " .
             "limit " . $pageSize . " offset " . (($page - 1) * $pageSize);
         $stmt = $this->db->prepare($query);
         $stmt->execute();

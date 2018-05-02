@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ccb90c92-7133-45c4-8cf5-489a49257692" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/controllers/news.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/admin/post/edit.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/admin/css/custom.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pages/admin/post/edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/admin/post/edit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/pages/admin/post/list.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/admin/post/list.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/admin/templates/head.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/admin/templates/head.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/services/newsService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/newsService.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,30 +16,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="newsService.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/services/newsService.php">
+      <file leaf-file-name="list.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/pages/admin/post/list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="184" column="45" selection-start-line="184" selection-start-column="45" selection-end-line="184" selection-end-column="45" />
+            <state relative-caret-position="420">
+              <caret line="108" column="66" selection-start-line="108" selection-start-column="66" selection-end-line="108" selection-end-column="66" />
               <folding>
-                <element signature="n#get#0;n#NewsService#0;n#!!top" />
-                <element signature="n#getWithCategory#0;n#NewsService#0;n#!!top" />
-                <element signature="n#getByCategoryWithPaging#0;n#NewsService#0;n#!!top" />
-                <element signature="n#search#0;n#NewsService#0;n#!!top" />
-                <element signature="n#mostViews#0;n#NewsService#0;n#!!top" />
-                <element signature="n#update#0;n#NewsService#0;n#!!top" />
-                <element signature="n#view#0;n#NewsService#0;n#!!top" />
-                <element signature="n#insert#0;n#NewsService#0;n#!!top" />
+                <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="list.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/pages/admin/post/list.php">
+      <file leaf-file-name="edit.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/pages/admin/post/edit.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2012">
-              <caret line="196" column="21" lean-forward="true" selection-start-line="196" selection-start-column="21" selection-end-line="196" selection-end-column="21" />
+            <state relative-caret-position="220">
+              <caret line="129" column="90" selection-start-line="129" selection-start-column="90" selection-end-line="129" selection-end-column="90" />
             </state>
           </provider>
         </entry>
@@ -129,10 +120,10 @@
         <option value="$PROJECT_DIR$/assets/admin/css/custom.css" />
         <option value="$PROJECT_DIR$/app/pages/admin/templates/footer.php" />
         <option value="$PROJECT_DIR$/app/pages/admin/templates/head.php" />
-        <option value="$PROJECT_DIR$/app/pages/admin/post/edit.php" />
-        <option value="$PROJECT_DIR$/app/pages/admin/post/list.php" />
         <option value="$PROJECT_DIR$/app/controllers/news.php" />
+        <option value="$PROJECT_DIR$/app/pages/admin/post/edit.php" />
         <option value="$PROJECT_DIR$/app/services/newsService.php" />
+        <option value="$PROJECT_DIR$/app/pages/admin/post/list.php" />
       </list>
     </option>
   </component>
@@ -154,6 +145,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -219,7 +211,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -255,18 +246,19 @@
       <workItem from="1525096324863" duration="5833000" />
       <workItem from="1525141337614" duration="7872000" />
       <workItem from="1525158440213" duration="16497000" />
-      <workItem from="1525182273625" duration="4485000" />
+      <workItem from="1525182273625" duration="5049000" />
+      <workItem from="1525256954922" duration="1388000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46549000" />
+    <option name="totallyTimeSpent" value="48501000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8680782" visible="true" weight="0.24963397" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8013029" visible="true" weight="0.24963397" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
@@ -274,7 +266,7 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info id="Structure" order="1" sideWeight="0.13192183" side_tool="true" visible="true" weight="0.24963397" />
+      <window_info id="Structure" order="1" sideWeight="0.19869708" side_tool="true" visible="true" weight="0.24963397" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32899022" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
@@ -299,6 +291,13 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/assets/admin/css/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../sports-shop-final/app/services/userService.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -380,13 +379,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
           <caret line="22" column="5" lean-forward="true" selection-start-line="17" selection-end-line="22" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/client/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2853">
-          <caret line="213" column="79" selection-start-line="213" selection-start-column="79" selection-end-line="213" selection-end-column="79" />
         </state>
       </provider>
     </entry>
@@ -540,9 +532,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="131" column="25" lean-forward="true" selection-start-line="76" selection-start-column="19" selection-end-line="131" selection-end-column="25" />
-          <folding>
-            <element signature="n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -550,13 +539,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="369" column="5" lean-forward="true" selection-start-line="332" selection-start-column="3" selection-end-line="369" selection-end-column="5" />
-          <folding>
-            <element signature="n#add#0;n#OrderService#0;n#!!top" />
-            <element signature="n#search#0;n#OrderService#0;n#!!top" />
-            <element signature="n#last#0;n#OrderService#0;n#!!top" />
-            <element signature="n#buildDateRangeQuery#0;n#OrderService#0;n#!!top" />
-            <element signature="n#buildNameQuery#0;n#OrderService#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -573,9 +555,6 @@
           <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../sports-shop-final/assets/admin/css/custom.css">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/../sports-shop-final/assets/admin/js/custom.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -630,13 +609,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/admin/post/edit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/category.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="271">
@@ -653,9 +625,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/services/newsService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="184" column="45" selection-start-line="184" selection-start-column="45" selection-end-line="184" selection-end-column="45" />
+        <state relative-caret-position="225">
+          <caret line="50" column="72" selection-start-line="50" selection-start-column="72" selection-end-line="50" selection-end-column="72" />
           <folding>
+            <element signature="n#all#0;n#NewsService#0;n#!!top" />
             <element signature="n#get#0;n#NewsService#0;n#!!top" />
             <element signature="n#getWithCategory#0;n#NewsService#0;n#!!top" />
             <element signature="n#getByCategoryWithPaging#0;n#NewsService#0;n#!!top" />
@@ -668,10 +641,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/client/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/admin/post/edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="129" column="90" selection-start-line="129" selection-start-column="90" selection-end-line="129" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/admin/post/list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2012">
-          <caret line="196" column="21" lean-forward="true" selection-start-line="196" selection-start-column="21" selection-end-line="196" selection-end-column="21" />
+        <state relative-caret-position="420">
+          <caret line="108" column="66" selection-start-line="108" selection-start-column="66" selection-end-line="108" selection-end-column="66" />
+          <folding>
+            <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -89,6 +89,7 @@ include '../templates/navigation.php';
                 <th>Tiêu đề</th>
                 <th style="width: 120px">Tác giả</th>
                 <th style="width: 180px">Ngày đăng</th>
+                <th style="width: 110px">Tình trạng</th>
                 <th style="width: 170px">Công cụ</th>
             </tr>
             </thead>
@@ -102,7 +103,14 @@ include '../templates/navigation.php';
                     <td><?php echo $post["author"]; ?></td>
                     <td><?php echo date('d/m/Y h:i:s', strtotime($post["createdAt"])); ?></td>
                     <td>
-                        <a href="/game-news/app/pages/admin/post/edit.php?id=<?php echo $post["id"] . "&returnUrl=(" . $_SERVER["QUERY_STRING"] . ")"; ?>"
+                        <?php if ($post["isActive"]): ?>
+                            <span class="badge badge-success">Đã duyệt</span>
+                        <?php else: ?>
+                            <span class="badge badge-danger">Chưa duyệt</span>
+                        <?php endif; ?>
+                    </td>
+                    <td>
+                        <a href="/game-news/app/pages/admin/post/edit.php?id=<?php echo $post["id"] . "&" . $_SERVER["QUERY_STRING"]; ?>"
                            class="btn btn-primary">
                             <i class="fa fa-pencil"></i>
                             Sửa
