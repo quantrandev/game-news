@@ -100,7 +100,7 @@ $userRoles = $userService->getRoles(unserialize($_SESSION["user"])["userName"]);
                 return $value["name"];
             }, $userRoles))): ?>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-                    <a class="nav-link" href="charts.html">
+                    <a class="nav-link" href="/game-news/app/pages/admin/comment/list.php">
                         <i class="fa fa-fw fa-comment-o"></i>
                         <span class="nav-link-text">Duyệt bình luận</span>
                     </a>

@@ -2,6 +2,7 @@
 
 include "../../../services/connection.php";
 include "../../../services/newsService.php";
+include "../../../services/commentService.php";
 include "../../../services/categoryService.php";
 $categoryService = new CategoryService($conn);
 $categories = $categoryService->allActive();
@@ -15,11 +16,90 @@ if (isset($_GET["id"])) {
     $post = $newsService->get($_GET["id"]);
 }
 
-$postInSameCategory = $newsService->getWithCategory(0, 4, $post["categoryId"]);
-$relatedPosts = array_filter($postInSameCategory, function ($value) use ($post) {
-    return $value["id"] != $post["id"];
-});
+$commentService = new CommentService($conn);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $postId = $_POST["postId"];
+    $parentId = isset($_POST["parentId"]) ? $_POST["parentId"] : 0;
+    $author = $_POST["author"];
+    $content = $_POST["content"];
+    date_default_timezone_set('Asia/Ho_Chi_Minh');
+    $createdAt = date('Y-m-d h:i:s', time());
 
+    $commentService->insert(array(
+        "author" => $author,
+        "postId" => $postId,
+        "parentId" => $parentId,
+        "content" => $content,
+        "createdAt" => $createdAt
+    ));
+}
+
+function generateComments($comment, $comments)
+{
+    $childComments = array_filter($comments, function ($c) use ($comment) {
+        return $c["parentId"] == $comment["id"];
+    });
+
+    //parent comment
+    echo '
+        <div class="media response-info">
+            <div class="media-left">
+                <img class="media-object" src="/game-news/assets/images/avatar4.png" alt="" style="width: 60px;"/>
+            </div>
+            <div class="media-body response-text-right">
+                 <h5 class="media-heading">' . $comment["author"] . '
+                 <h5>
+                     <small style="font-style: italic; margin: 0 5px 0 0">' . date("d-m-Y h:i:s", strtotime($comment["createdAt"])) . '</small>
+                     <small><a role="button" class="js-reply" style="margin-right: 5px">Trả lời</a></small>
+                     <small><a role="button" class="js-reply-count">Phản hồi (' . count($childComments) . ')</a></small>
+                 </h5>
+                 </h5>
+                 <p>' . $comment["content"] . '</p>
+                 <div class="coment-form hide" style="margin-top: 5px;">
+                     <form method="post" action="">
+                         <input type="hidden" name="postId" value="' . $comment["postId"] . '">
+                         <input type="hidden" name="parentId" value="' . $comment["id"] . '">
+                         <input type="text" placeholder="Tên"
+                                required name="author">
+                         <textarea required="" placeholder="Bình luận của bạn" name="content"></textarea>
+                         <input type="submit" value="Gửi bình luận">
+                     </form>
+                 </div>
+        ';
+
+    if (count($childComments) == 0) {
+        echo '
+        </div>
+              <div class="clearfix"></div>
+        </div>
+        ';
+        return;
+    }
+
+    foreach ($childComments as $comment) {
+        generateComments($comment, $comments);
+    }
+    echo '
+    </div>
+        <div class="clearfix"></div>
+    </div>
+        ';
+}
+
+$comments = $commentService->getByPost(array("postId" => $post["id"]));
+
+
+$topLevelComments = array_filter($comments, function ($comment) {
+    return $comment["parentId"] == 0;
+});
+$topLevelComments = array_values($topLevelComments);
+$count = count($topLevelComments);
+
+$page = empty($_GET["page"]) ? 1 : $_GET["page"];
+$queryStringArr = array();
+parse_str($_SERVER["QUERY_STRING"], $queryStringArr);
+unset($queryStringArr["page"]);
+$queryString = http_build_query($queryStringArr);
 
 include "../templates/head.php";
 include "../templates/header.php";
@@ -39,124 +119,78 @@ include "../templates/header.php";
                         <?php echo $post["content"]; ?>
                         <div class="clearfix"></div>
 
-                        <div class="response">
+                        <div class="response" id="comments">
                             <hr>
-                            <h4>Bình luận</h4>
-                            <div class="media response-info">
-                                <div class="media-left response-text-left">
-                                    <a href="#">
-                                        <img class="media-object" src="images/c1.jpg" alt=""/>
+                            <h4>Bình luận (<?php echo $count; ?>)</h4>
+                            <?php
+                            for ($i = ($page - 1) * 5; $i < (($page - 1) * 5) + 5 && $i < $count; $i++) {
+                                generateComments($topLevelComments[$i], $comments);
+                            }
+                            ?>
+                            <ul class="store-pages" style="margin-top: 20px;">
+                                <li><span class="text-uppercase">Page:</span></li>
+                                <li class="<?php if ($page == 1) echo 'hide'; ?>">
+                                    <a href="<?php echo $_SERVER["PHP_SELF"] . "?" . $queryString . "&page=" . ($page - 1); ?>">
+                                        <i class="glyphicon glyphicon-chevron-left"></i>
                                     </a>
-                                    <h5><a href="#">Username</a></h5>
-                                </div>
-                                <div class="media-body response-text-right">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,There are many
-                                        variations of passages of Lorem Ipsum available,
-                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                    <ul>
-                                        <li>Sep 21, 2015</li>
-                                        <li><a href="single.html">Reply</a></li>
-                                    </ul>
-                                    <div class="media response-info">
-                                        <div class="media-left response-text-left">
-                                            <a href="#">
-                                                <img class="media-object" src="images/c2.jpg" alt=""/>
-                                            </a>
-                                            <h5><a href="#">Username</a></h5>
-                                        </div>
-                                        <div class="media-body response-text-right">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,There are many
-                                                variations of passages of Lorem Ipsum available,
-                                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                            <ul>
-                                                <li>July 17, 2015</li>
-                                                <li><a href="single.html">Reply</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="media response-info">
-                                <div class="media-left response-text-left">
-                                    <a href="#">
-                                        <img class="media-object" src="images/c3.jpg" alt=""/>
+                                </li>
+                                <?php if (ceil($count / 5) < 20): ?>
+                                    <?php for ($i = 1; $i <= ceil($count / 5); $i++): ?>
+                                        <?php if ($page == $i): ?>
+                                            <li class="active"><?php echo $i; ?></li>
+                                        <?php else: ?>
+                                            <li>
+                                                <a href="<?php echo $_SERVER["PHP_SELF"] . "?" . $queryString . "&page=" . $i . "#comments"; ?>">
+                                                    <?php echo $i; ?>
+                                                </a>
+                                            </li>
+                                        <?php endif; ?>
+                                    <?php endfor; ?>
+                                <?php else: ?>
+                                    <?php for ($i = 1; $i <= 5; $i++): ?>
+                                        <?php if ($page == $i): ?>
+                                            <li class="active"><?php echo $i; ?></li>
+                                        <?php else: ?>
+                                            <li>
+                                                <a href="<?php echo $_SERVER["PHP_SELF"] . "?" . $queryString . "&page=" . $i; ?>">
+                                                    <?php echo $i; ?>
+                                                </a>
+                                            </li>
+                                        <?php endif; ?>
+                                    <?php endfor; ?>
+                                    <li class="active">...</li>
+                                    <?php for ($i = 6; $i <= ceil($count / 5) - 5; $i++): ?>
+                                        <?php if ($page == $i): ?>
+                                            <li class="active"><?php echo $i; ?></li>
+                                            <li class="active">...</li>
+                                        <?php endif; ?>
+                                    <?php endfor; ?>
+                                    <?php for ($i = ceil($count / 5) - 4; $i <= ceil($count / 12); $i++): ?>
+                                        <?php if ($page == $i): ?>
+                                            <li class="active"><?php echo $i; ?></li>
+                                        <?php else: ?>
+                                            <li>
+                                                <a href="<?php echo $_SERVER["PHP_SELF"] . "?" . $queryString . "&page=" . $i. "#comments"; ?>">
+                                                    <?php echo $i; ?>
+                                                </a>
+                                            </li>
+                                        <?php endif; ?>
+                                    <?php endfor; ?>
+                                <?php endif; ?>
+                                <li class="<?php if ($page == ceil($count / 5)) echo 'hide'; ?>">
+                                    <a href="<?php echo $_SERVER["PHP_SELF"] . "?" . $queryString . "&page=" . ($page + 1); ?>">
+                                        <i class="glyphicon glyphicon-chevron-right"></i>
                                     </a>
-                                    <h5><a href="#">Username</a></h5>
-                                </div>
-                                <div class="media-body response-text-right">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,There are many
-                                        variations of passages of Lorem Ipsum available,
-                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                    <ul>
-                                        <li>June 21, 2015</li>
-                                        <li><a href="single.html">Reply</a></li>
-                                    </ul>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="media response-info">
-                                <div class="media-left response-text-left">
-                                    <a href="#">
-                                        <img class="media-object" src="images/c4.jpg" alt=""/>
-                                    </a>
-                                    <h5><a href="#">Username</a></h5>
-                                </div>
-                                <div class="media-body response-text-right">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,There are many
-                                        variations of passages of Lorem Ipsum available,
-                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                    <ul>
-                                        <li>Mar 28, 2015</li>
-                                        <li><a href="single.html">Reply</a></li>
-                                    </ul>
-                                    <div class="media response-info">
-                                        <div class="media-left response-text-left">
-                                            <a href="#">
-                                                <img class="media-object" src="images/c5.jpg" alt=""/>
-                                            </a>
-                                            <h5><a href="#">Username</a></h5>
-                                        </div>
-                                        <div class="media-body response-text-right">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,There are many
-                                                variations of passages of Lorem Ipsum available,
-                                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                            <ul>
-                                                <li>Feb 19, 2015</li>
-                                                <li><a href="single.html">Reply</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="media response-info">
-                                <div class="media-left response-text-left">
-                                    <a href="#">
-                                        <img class="media-object" src="images/c6.jpg" alt=""/>
-                                    </a>
-                                    <h5><a href="#">Username</a></h5>
-                                </div>
-                                <div class="media-body response-text-right">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,There are many
-                                        variations of passages of Lorem Ipsum available,
-                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                    <ul>
-                                        <li>Jan 20, 2015</li>
-                                        <li><a href="single.html">Reply</a></li>
-                                    </ul>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
+                                </li>
+                            </ul>
                         </div>
                         <div class="coment-form">
                             <h4>Bình luận về bài viết này</h4>
-                            <form>
+                            <form method="post" action="">
+                                <input type="hidden" name="postId" value="<?php echo $post["id"]; ?>">
                                 <input type="text" placeholder="Tên"
-                                       required="">
-                                <textarea required="" placeholder="Bình luận của bạn"></textarea>
+                                       required name="author">
+                                <textarea required="" placeholder="Bình luận của bạn" name="content"></textarea>
                                 <input type="submit" value="Gửi bình luận">
                             </form>
                         </div>
@@ -277,6 +311,14 @@ include "../templates/footer.php";
         error: function (err) {
 
         }
+    });
+    $(document).on('click', '.js-reply', function () {
+        $(this).closest('.media-body').find('.coment-form:first').toggleClass('hide');
+    });
+
+    $('.media-body').find('.media').hide();
+    $(document).on('click', '.js-reply-count', function () {
+        $(this).closest('.media-body').children('.media').toggle();
     });
 </script>
 

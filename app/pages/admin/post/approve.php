@@ -74,7 +74,7 @@ include '../templates/navigation.php';
                             <label for="">Tình trạng duyệt</label>
                             <select name="isActive" class="form-control">
                                 <option value>Chọn</option>
-                                <option value="0" <?php echo isset($_GET["isActive"]) ? ($_GET["isActive"] == 0 ? 'selected' : '') : '' ?>>
+                                <option value="0" <?php echo isset($_GET["isActive"]) ? ($_GET["isActive"] === 0 ? 'selected' : '') : '' ?>>
                                     Chưa duyệt
                                 </option>
                                 <option value="1" <?php echo isset($_GET["isActive"]) ? ($_GET["isActive"] == 1 ? 'selected' : '') : '' ?>>
@@ -116,7 +116,7 @@ include '../templates/navigation.php';
                     </td>
                     <td><?php echo $post["title"]; ?></td>
                     <td><?php echo $post["author"]; ?></td>
-                    <td><?php echo date('d / m / Y h:i:s', strtotime($post["createdAt"])); ?></td>
+                    <td><?php echo date('d/m/Y h:i:s', strtotime($post["createdAt"])); ?></td>
                     <td>
                         <?php if ($post["isActive"]): ?>
                             <span class="badge badge-success">Đã duyệt</span>
