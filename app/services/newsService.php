@@ -220,6 +220,8 @@ class NewsService
     {
         if (!isset($condition["isActive"]))
             return "";
+        if ($condition["isActive"] == "")
+            return "";
 
         $query = "isActive = " . $condition["isActive"];
 

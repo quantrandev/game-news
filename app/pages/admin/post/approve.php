@@ -19,14 +19,7 @@ $allRoles = $userService->getAllRoles();
 
 $newsService = new NewsService($conn);
 
-$condition = $_GET;
-if (!isset($_GET["isActive"])) {
-    $condition = array_merge($condition, array(
-        "isActive" => 0
-    ));
-}
-
-$result = $newsService->search(empty($_GET["page"]) ? 1 : $_GET["page"], 10, $condition);
+$result = $newsService->search(empty($_GET["page"]) ? 1 : $_GET["page"], 10, $_GET);
 $posts = $result["news"];
 $count = $result["count"];
 
@@ -81,8 +74,12 @@ include '../templates/navigation.php';
                             <label for="">Tình trạng duyệt</label>
                             <select name="isActive" class="form-control">
                                 <option value>Chọn</option>
-                                <option value="0">Chưa duyệt</option>
-                                <option value="1">Đã duyệt</option>
+                                <option value="0" <?php echo isset($_GET["isActive"]) ? ($_GET["isActive"] == 0 ? 'selected' : '') : '' ?>>
+                                    Chưa duyệt
+                                </option>
+                                <option value="1" <?php echo isset($_GET["isActive"]) ? ($_GET["isActive"] == 1 ? 'selected' : '') : '' ?>>
+                                    Đã duyệt
+                                </option>
                             </select>
                         </div>
                     </div>
@@ -119,7 +116,7 @@ include '../templates/navigation.php';
                     </td>
                     <td><?php echo $post["title"]; ?></td>
                     <td><?php echo $post["author"]; ?></td>
-                    <td><?php echo date('d/m/Y h:i:s', strtotime($post["createdAt"])); ?></td>
+                    <td><?php echo date('d / m / Y h:i:s', strtotime($post["createdAt"])); ?></td>
                     <td>
                         <?php if ($post["isActive"]): ?>
                             <span class="badge badge-success">Đã duyệt</span>
@@ -208,11 +205,11 @@ include '../templates/footer.php';
 ?>
 
 <script>
-    $(document).on('click', '.js-delete', function () {
-        let id = $(this).attr('data-id');
+    $(document).on('click', ' . js - delete', function () {
+        let id = $(this).attr('data - id');
         if (confirm('Xóa bài viết được chọn')) {
             $.ajax({
-                url: '/game-news/app/controllers/news.php',
+                url: ' / game - news / app / controllers / news . php',
                 type: 'post',
                 data: {id: id, function: 'delete'},
                 success: function (res) {
@@ -230,11 +227,11 @@ include '../templates/footer.php';
             })
         }
     });
-    $(document).on('click', '.js-approve', function () {
-        let id = $(this).attr('data-id');
+    $(document).on('click', ' . js - approve', function () {
+        let id = $(this).attr('data - id');
         if (confirm('Duyệt bài viết được chọn')) {
             $.ajax({
-                url: '/game-news/app/controllers/news.php',
+                url: ' / game - news / app / controllers / news . php',
                 type: 'post',
                 data: {id: id, function: 'approve'},
                 success: function (res) {
@@ -252,13 +249,13 @@ include '../templates/footer.php';
             })
         }
     });
-    $(document).on('click', '.js-disable-approve', function () {
-        let id = $(this).attr('data-id');
+    $(document).on('click', ' . js - disable - approve', function () {
+        let id = $(this).attr('data - id');
         if (confirm('Hủy duyệt bài viết được chọn')) {
             $.ajax({
-                url: '/game-news/app/controllers/news.php',
+                url: ' / game - news / app / controllers / news . php',
                 type: 'post',
-                data: {id: id, function: 'dis-approve'},
+                data: {id: id, function: 'dis - approve'},
                 success: function (res) {
                     res = JSON.parse(res);
                     if (res.error)
