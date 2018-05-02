@@ -37,7 +37,7 @@ include '../templates/navigation.php';
     <li class="breadcrumb-item">
         <a href="#">Trang quản trị</a>
     </li>
-    <li class="breadcrumb-item active">Duyệt comment</li>
+    <li class="breadcrumb-item active">Duyệt bình luận</li>
 </ol>
 
 <div class="row">
@@ -58,7 +58,7 @@ include '../templates/navigation.php';
                 <th>Nội dung bình luận</th>
                 <th style="width: 120px">Ngày đăng</th>
                 <th style="width: 110px">Tình trạng</th>
-                <th style="width: 140px">Công cụ</th>
+                <th style="width: 220px">Công cụ</th>
             </tr>
             </thead>
             <tbody>
@@ -79,9 +79,20 @@ include '../templates/navigation.php';
                         <?php endif; ?>
                     </td>
                     <td>
-                        <button class="btn btn-info js-approve" data-id="<?php echo $comment["id"]; ?>">
-                            <i class="fa fa-check-circle"></i>
-                            Duyệt bình luận
+                        <?php if (!$comment["isActive"]): ?>
+                            <button class="btn btn-info js-approve" data-id="<?php echo $comment["id"]; ?>">
+                                <i class="fa fa-check-circle"></i>
+                                Duyệt
+                            </button>
+                        <?php else: ?>
+                            <button class="btn btn-warning js-disable-approve" data-id="<?php echo $comment["id"]; ?>">
+                                <i class="fa fa-check-circle"></i>
+                                Hủy duyệt
+                            </button>
+                        <?php endif; ?>
+                        <button class="btn btn-danger js-delete" data-id="<?php echo $comment["id"]; ?>">
+                            <i class="fa fa-trash"></i>
+                            Xóa
                         </button>
                     </td>
                 </tr>
@@ -165,6 +176,50 @@ include '../templates/footer.php';
                         alert('Có lỗi xảy ra, vui lòng thử lại');
                     else {
                         alert('Duyệt thành công bình luận');
+                        window.location.reload();
+                    }
+                },
+                error: function (err) {
+                    alert('Có lỗi xảy ra, vui lòng thử lại');
+                }
+            })
+        }
+    });
+    $(document).on('click', '.js-disable-approve', function () {
+        let id = $(this).attr('data-id');
+        if (confirm('Hủy duyệt bình luận được chọn')) {
+            $.ajax({
+                url: '/game-news/app/controllers/comment.php',
+                type: 'post',
+                data: {id: id, function: 'dis-approve'},
+                success: function (res) {
+                    res = JSON.parse(res);
+                    if (res.error)
+                        alert('Có lỗi xảy ra, vui lòng thử lại');
+                    else {
+                        alert('Hủy duyệt thành công bình luận');
+                        window.location.reload();
+                    }
+                },
+                error: function (err) {
+                    alert('Có lỗi xảy ra, vui lòng thử lại');
+                }
+            })
+        }
+    });
+    $(document).on('click', '.js-delete', function () {
+        let id = $(this).attr('data-id');
+        if (confirm('Xóa duyệt bình luận được chọn')) {
+            $.ajax({
+                url: '/game-news/app/controllers/comment.php',
+                type: 'post',
+                data: {id: id, function: 'delete'},
+                success: function (res) {
+                    res = JSON.parse(res);
+                    if (res.error)
+                        alert('Có lỗi xảy ra, vui lòng thử lại');
+                    else {
+                        alert('Xóa thành công bình luận');
                         window.location.reload();
                     }
                 },

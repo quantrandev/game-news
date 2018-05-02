@@ -26,12 +26,8 @@ class CommentService
     {
         $postQuery = $this->buildPostQuery($condition);
 
-        $condition = "";
-        if (!empty($pageSize)) {
-            $condition .= " where "
-                . (empty($postQuery) ? 'true' : $postQuery);
-        } else
-            $condition .= "";
+        $condition = " where isActive = 1 and "
+            . (empty($postQuery) ? 'true' : $postQuery);
 
         $sql = "select * from comments"
             . $condition
@@ -157,25 +153,23 @@ comments.createdAt,
 
     public function delete($id)
     {
-        $query = "delete from categories where id = " . $id;
+        $query = "delete from comments where id = " . $id;
         $result = $this->db->exec($query);
 
         return empty($result) ? false : true;
     }
 
-    public function update($id, $columns)
+    public function approve($id)
     {
-        $sql = "update categories set ";
+        $query = "update comments set isActive = 1 where id = " . $id;
+        $result = $this->db->exec($query);
+        return empty($result) ? false : true;
+    }
 
-        if (!empty($columns["name"]))
-            $sql .= "name = N'" . $columns["name"] . "',";
-        if ($columns["isActive"] != null)
-            $sql .= "isActive = " . $columns["isActive"] . ",";
-        if (!empty($columns["position"]))
-            $sql .= "position = " . $columns["position"] . ",";
-
-        $sql = substr(trim($sql), 0, strlen($sql) - 1) . " where id = '" . $id . "'";
-        $result = $this->db->exec($sql);
+    public function disableApprove($id)
+    {
+        $query = "update comments set isActive = 0 where id = " . $id;
+        $result = $this->db->exec($query);
         return empty($result) ? false : true;
     }
 
