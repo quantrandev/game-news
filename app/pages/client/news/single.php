@@ -4,7 +4,7 @@ include "../../../services/connection.php";
 include "../../../services/newsService.php";
 include "../../../services/categoryService.php";
 $categoryService = new CategoryService($conn);
-$categories = $categoryService->all();
+$categories = $categoryService->allActive();
 
 $newsService = new NewsService($conn);
 $latestNews = $newsService->all(0, 5);

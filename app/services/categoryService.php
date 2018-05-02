@@ -34,7 +34,7 @@ class CategoryService
 
     public function allActive()
     {
-        $query = "select * from categories order by position where isActive = 1";
+        $query = "select * from categories where isActive = 1 order by position";
         $stmt = $this->db->prepare($query);
         $stmt->execute();
 
@@ -72,7 +72,7 @@ class CategoryService
 
         if (!empty($columns["name"]))
             $sql .= "name = N'" . $columns["name"] . "',";
-        if (!empty($columns["isActive"]))
+        if ($columns["isActive"] != null)
             $sql .= "isActive = " . $columns["isActive"] . ",";
         if (!empty($columns["position"]))
             $sql .= "position = " . $columns["position"] . ",";

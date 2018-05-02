@@ -32,8 +32,10 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
         ));
         if ($error)
             $_SESSION["errorMessage"] = "Có lỗi xảy ra, vui lòng thử lại";
-        else
+        else {
             $_SESSION["flashMessage"] = "Cập nhật thành công";
+            $editedCategory = $categoryService->get($_GET["id"]);
+        }
     }
 }
 

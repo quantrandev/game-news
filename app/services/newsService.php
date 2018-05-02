@@ -75,11 +75,14 @@ class NewsService
     {
         $categoryQuery = $this->buildCategoryQuery($condition);
         $titleQuery = $this->buildTitleQuery($condition);
+        $isActiveQuery = $this->buildIsActiveQuery($condition);
 
         $condition = "";
-        if (!empty($categoryQuery) || !empty($titleQuery)) {
+        if (!empty($categoryQuery) || !empty($titleQuery) || !empty($isActiveQuery)) {
             $condition .= " where "
                 . (empty($titleQuery) ? 'true' : $titleQuery)
+                . " and "
+                . (empty($isActiveQuery) ? 'true' : $isActiveQuery)
                 . " and "
                 . (empty($categoryQuery) ? 'true' : $categoryQuery);
         } else
@@ -87,6 +90,7 @@ class NewsService
 
         $sql = "select * from news"
             . $condition
+            . " order by createdAt desc "
             . " limit " . $pageSize . " offset " . (($page - 1) * $pageSize);
 
         $stmt = $this->db->prepare($sql);
@@ -159,6 +163,22 @@ class NewsService
         $this->db->exec($query);
     }
 
+    public function approve($id)
+    {
+        $query = "update news set isActive = 1 where id = " . $id;
+        $result = $this->db->exec($query);
+
+        return empty($result) ? false : true;
+    }
+
+    public function disableApprove($id)
+    {
+        $query = "update news set isActive = 0 where id = " . $id;
+        $result = $this->db->exec($query);
+
+        return empty($result) ? false : true;
+    }
+
     //create
     public function insert($data)
     {
@@ -192,6 +212,16 @@ class NewsService
             return "";
 
         $query = "categoryId = " . $condition["category"];
+
+        return $query;
+    }
+
+    public function buildIsActiveQuery($condition)
+    {
+        if (!isset($condition["isActive"]))
+            return "";
+
+        $query = "isActive = " . $condition["isActive"];
 
         return $query;
     }

@@ -44,7 +44,7 @@ include '../templates/navigation.php';
     <li class="breadcrumb-item">
         <a href="#">Trang quản trị</a>
     </li>
-    <li class="breadcrumb-item active">Thêm người dùng</li>
+    <li class="breadcrumb-item active">Thêm chuyên mục</li>
 </ol>
 
 <div class="row">

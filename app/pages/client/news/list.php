@@ -4,7 +4,7 @@ include "../../../services/connection.php";
 include "../../../services/newsService.php";
 include "../../../services/categoryService.php";
 $categoryService = new CategoryService($conn);
-$categories = $categoryService->all();
+$categories = $categoryService->allActive();
 
 $newsService = new NewsService($conn);
 $latestNews = $newsService->all(0, 5);
@@ -29,10 +29,11 @@ include "../templates/header.php";
         <div class="privacy-page">
             <div class="col-md-8 content-left">
                 <div class="fashion">
-                    <?php for ($i = 0; $i < count($posts) - 1; $i+=2): ?>
+                    <?php for ($i = 0; $i < count($posts) - 1; $i += 2): ?>
                         <div class="fashion-top">
                             <div class="fashion-left">
-                                <a class="my-thumbnail" href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts[$i]["id"]; ?>"><img
+                                <a class="my-thumbnail"
+                                   href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts[$i]["id"]; ?>"><img
                                             src="/game-news/assets/<?php echo $posts[$i]["image"]; ?>"
                                             class="img-responsive" alt="<?php echo $posts[$i]["title"]; ?>"></a>
                                 <div class="blog-poast-info">
@@ -46,13 +47,14 @@ include "../templates/header.php";
                                 <h3 class="list-title"><a
                                             href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts[$i]["id"]; ?>"><?php echo strlen($posts[$i]["title"]) > 50 ? mb_substr($posts[$i]["title"], 0, 50) . " ..." : $posts[$i]["title"]; ?></a>
                                 </h3>
-                                <p><?php echo strlen($posts[$i]["summary"]) > 200 ? mb_substr($posts[$i]["summary"], 0, 200) ." ..." : $posts[$i]["summary"]; ?></p>
+                                <p><?php echo strlen($posts[$i]["summary"]) > 200 ? mb_substr($posts[$i]["summary"], 0, 200) . " ..." : $posts[$i]["summary"]; ?></p>
                                 <a class="reu"
                                    href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts[$i]["id"]; ?>"><img
                                             src="images/more.png" alt=""/></a>
                             </div>
                             <div class="fashion-right">
-                                <a class="my-thumbnail" href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts[$i + 1]["id"]; ?>"><img
+                                <a class="my-thumbnail"
+                                   href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts[$i + 1]["id"]; ?>"><img
                                             src="/game-news/assets/<?php echo $posts[$i + 1]["image"]; ?>"
                                             class="img-responsive" alt="<?php echo $posts[$i + 1]["title"]; ?>"></a>
                                 <div class="blog-poast-info">
@@ -66,7 +68,7 @@ include "../templates/header.php";
                                 <h3 class="list-title"><a
                                             href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts[$i + 1]["id"]; ?>"><?php echo strlen($posts[$i + 1]["title"]) > 50 ? mb_substr($posts[$i + 1]["title"], 0, 50) . " ..." : $posts[$i + 1]["title"]; ?></a>
                                 </h3>
-                                <p><?php echo strlen($posts[$i + 1]["summary"]) > 200 ? mb_substr($posts[$i + 1]["summary"], 0, 200) ." ..." : $posts[$i + 1]["summary"]; ?></p>
+                                <p><?php echo strlen($posts[$i + 1]["summary"]) > 200 ? mb_substr($posts[$i + 1]["summary"], 0, 200) . " ..." : $posts[$i + 1]["summary"]; ?></p>
                                 <a class="reu"
                                    href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts[$i + 1]["id"]; ?>"><img
                                             src="images/more.png" alt=""/></a>

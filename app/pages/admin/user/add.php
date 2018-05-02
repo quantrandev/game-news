@@ -96,7 +96,7 @@ include '../templates/navigation.php';
                 </select>
             </div>
             <div class="form-group">
-                <label for="" class="control-label">Mật khẩu mới</label>
+                <label for="" class="control-label">Mật khẩu</label>
                 <input type="password" class="form-control" name="password">
             </div>
             <div class="form-group">

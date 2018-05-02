@@ -25,7 +25,7 @@ include '../templates/navigation.php';
     <li class="breadcrumb-item">
         <a href="#">Trang quản trị</a>
     </li>
-    <li class="breadcrumb-item active">Danh sách danh mục</li>
+    <li class="breadcrumb-item active">Danh sách chuyên mục</li>
 </ol>
 
 <div class="row">
