@@ -99,11 +99,20 @@ $userRoles = $userService->getRoles(unserialize($_SESSION["user"])["userName"]);
             <?php if (in_array('Duyệt bình luận', array_map(function ($value) {
                 return $value["name"];
             }, $userRoles))): ?>
-                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-                    <a class="nav-link" href="/game-news/app/pages/admin/comment/list.php">
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#ads"
+                       data-parent="#exampleAccordion">
                         <i class="fa fa-fw fa-comment-o"></i>
                         <span class="nav-link-text">Duyệt bình luận</span>
                     </a>
+                    <ul class="sidenav-second-level collapse" id="ads">
+                        <li>
+                            <a href="/game-news/app/pages/admin/comment/list.php">Theo tình trạng duyệt</a>
+                        </li>
+                        <li>
+                            <a href="/game-news/app/pages/admin/comment/post.php">Theo bài viết</a>
+                        </li>
+                    </ul>
                 </li>
             <?php endif; ?>
             <?php if (in_array('Duyệt bài', array_map(function ($value) {

@@ -93,11 +93,14 @@ class CommentService
     public function search($page, $pageSize, $condition)
     {
         $postQuery = $this->buildPostQuery($condition);
+        $isActiveQuery = $this->buildIsActiveQuery($condition);
 
         $condition = "";
         if (!empty($pageSize)) {
             $condition .= " where "
-                . (empty($postQuery) ? 'true' : $postQuery);
+                . (empty($postQuery) ? 'true' : $postQuery)
+                . " and "
+                . (empty($isActiveQuery) ? 'true' : $isActiveQuery);
         } else
             $condition .= "";
 
@@ -179,6 +182,18 @@ comments.createdAt,
             return "";
 
         $query = "postId = " . $condition["postId"];
+        return $query;
+    }
+
+    public function buildIsActiveQuery($condition)
+    {
+        if (!isset($condition["isActive"]))
+            return "";
+
+        if ($condition["isActive"] === "")
+            return "";
+
+        $query = "comments.isActive = " . $condition["isActive"];
         return $query;
     }
 }

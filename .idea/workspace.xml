@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ccb90c92-7133-45c4-8cf5-489a49257692" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/app/pages/admin/comment/post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/pages/admin/comment/list.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/admin/comment/list.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pages/admin/templates/navigation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/admin/templates/navigation.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/services/commentService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/commentService.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,15 +20,11 @@
       <file leaf-file-name="commentService.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/services/commentService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="548">
-              <caret line="166" column="5" lean-forward="true" selection-start-line="166" selection-start-column="5" selection-end-line="166" selection-end-column="5" />
+            <state relative-caret-position="328">
+              <caret line="195" column="27" selection-start-line="195" selection-start-column="27" selection-end-line="195" selection-end-column="27" />
               <folding>
-                <element signature="n#all#0;n#CategoryService#0;n#!!top" />
                 <element signature="n#getByPost#0;n#CommentService#0;n#!!top" />
-                <element signature="n#get#0;n#CategoryService#0;n#!!top" />
                 <element signature="n#getByPostWithPaging#0;n#CommentService#0;n#!!top" />
-                <element signature="n#search#0;n#CategoryService#0;n#!!top" />
-                <element signature="n#buildPostQuery#0;n#CommentService#0;n#!!top" />
               </folding>
             </state>
           </provider>
@@ -34,11 +33,26 @@
       <file leaf-file-name="list.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/pages/admin/comment/list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="39" column="54" selection-start-line="39" selection-start-column="54" selection-end-line="39" selection-end-column="54" />
-              <folding>
-                <element signature="n#style#0;n#th#5;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="308">
+              <caret line="59" column="83" selection-start-line="59" selection-start-column="83" selection-end-line="59" selection-end-column="83" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="post.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/pages/admin/comment/post.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2060">
+              <caret line="112" column="121" lean-forward="true" selection-start-line="112" selection-start-column="121" selection-end-line="112" selection-end-column="121" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="navigation.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/pages/admin/templates/navigation.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="112" column="80" selection-start-line="112" selection-start-column="80" selection-end-line="112" selection-end-column="80" />
             </state>
           </provider>
         </entry>
@@ -120,11 +134,12 @@
         <option value="$PROJECT_DIR$/app/controllers/news.php" />
         <option value="$PROJECT_DIR$/app/services/newsService.php" />
         <option value="$PROJECT_DIR$/app/pages/admin/post/approve.php" />
-        <option value="$PROJECT_DIR$/app/pages/admin/templates/navigation.php" />
         <option value="$PROJECT_DIR$/assets/client/css/custom.css" />
         <option value="$PROJECT_DIR$/app/controllers/comment.php" />
         <option value="$PROJECT_DIR$/app/pages/client/news/single.php" />
         <option value="$PROJECT_DIR$/app/services/commentService.php" />
+        <option value="$PROJECT_DIR$/app/pages/admin/templates/navigation.php" />
+        <option value="$PROJECT_DIR$/app/pages/admin/comment/post.php" />
         <option value="$PROJECT_DIR$/app/pages/admin/comment/list.php" />
       </list>
     </option>
@@ -247,18 +262,19 @@
       <workItem from="1525158440213" duration="16497000" />
       <workItem from="1525182273625" duration="5049000" />
       <workItem from="1525256954922" duration="5589000" />
-      <workItem from="1525265821312" duration="10358000" />
+      <workItem from="1525265821312" duration="10879000" />
+      <workItem from="1525310652824" duration="2529000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63060000" />
+    <option name="totallyTimeSpent" value="66110000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7980456" visible="true" weight="0.24963397" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8680782" visible="true" weight="0.24963397" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
@@ -266,7 +282,7 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info id="Structure" order="1" sideWeight="0.2019544" side_tool="true" visible="true" weight="0.24963397" />
+      <window_info id="Structure" order="1" sideWeight="0.13192183" side_tool="true" visible="true" weight="0.24963397" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32899022" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
@@ -291,13 +307,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../sports-shop-final/app/pages/admin/product/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" column="55" lean-forward="true" selection-start-line="5" selection-end-line="10" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../sports-shop-final/app/pages/authentication/login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
@@ -580,13 +589,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/admin/post/approve.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="118" column="42" lean-forward="true" selection-start-line="118" selection-start-column="42" selection-end-line="118" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/services/newsService.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
@@ -594,13 +596,6 @@
           <folding>
             <element signature="n#getByCategoryWithPaging#0;n#NewsService#0;n#!!top" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/admin/templates/navigation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2040">
-          <caret line="102" column="89" selection-start-line="102" selection-start-column="89" selection-end-line="102" selection-end-column="89" />
         </state>
       </provider>
     </entry>
@@ -618,40 +613,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/admin/post/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="28" column="49" lean-forward="true" selection-start-line="24" selection-end-line="28" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/client/news/single.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="415">
           <caret line="172" column="138" selection-start-line="172" selection-start-column="138" selection-end-line="172" selection-end-column="138" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#small#0;n#h5#0;n#h5#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#small#1;n#h5#0;n#h5#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ul#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#li#1;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/services/commentService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="166" column="5" lean-forward="true" selection-start-line="166" selection-start-column="5" selection-end-line="166" selection-end-column="5" />
-          <folding>
-            <element signature="n#all#0;n#CategoryService#0;n#!!top" />
-            <element signature="n#getByPost#0;n#CommentService#0;n#!!top" />
-            <element signature="n#get#0;n#CategoryService#0;n#!!top" />
-            <element signature="n#getByPostWithPaging#0;n#CommentService#0;n#!!top" />
-            <element signature="n#search#0;n#CategoryService#0;n#!!top" />
-            <element signature="n#buildPostQuery#0;n#CommentService#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -662,13 +627,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/admin/post/approve.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1000">
+          <caret line="118" column="42" lean-forward="true" selection-start-line="118" selection-start-column="42" selection-end-line="118" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/admin/templates/navigation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="112" column="80" selection-start-line="112" selection-start-column="80" selection-end-line="112" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/admin/post/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="32" lean-forward="true" selection-end-line="222" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/services/commentService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="195" column="27" selection-start-line="195" selection-start-column="27" selection-end-line="195" selection-end-column="27" />
+          <folding>
+            <element signature="n#getByPost#0;n#CommentService#0;n#!!top" />
+            <element signature="n#getByPostWithPaging#0;n#CommentService#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/admin/comment/post.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2060">
+          <caret line="112" column="121" lean-forward="true" selection-start-line="112" selection-start-column="121" selection-end-line="112" selection-end-column="121" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/admin/comment/list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="39" column="54" selection-start-line="39" selection-start-column="54" selection-end-line="39" selection-end-column="54" />
-          <folding>
-            <element signature="n#style#0;n#th#5;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="308">
+          <caret line="59" column="83" selection-start-line="59" selection-start-column="83" selection-end-line="59" selection-end-column="83" />
         </state>
       </provider>
     </entry>

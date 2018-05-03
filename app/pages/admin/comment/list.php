@@ -18,7 +18,11 @@ if (!$userService->isAuthorize('Duyệt bình luận'))
 $allRoles = $userService->getAllRoles();
 
 $commentService = new CommentService($conn);
-$result = $commentService->search(empty($_GET["page"]) ? 1 : $_GET["page"], 10, $_GET);
+$condition = $_GET;
+if (!isset($_GET["isActive"]))
+    $condition = array_merge($condition, array("isActive" => 0));
+
+$result = $commentService->search(empty($_GET["page"]) ? 1 : $_GET["page"], 10, $condition);
 $comments = $result["comments"];
 $count = $result["count"];
 
@@ -27,6 +31,10 @@ $queryStringArr = array();
 parse_str($_SERVER["QUERY_STRING"], $queryStringArr);
 unset($queryStringArr["page"]);
 $queryString = http_build_query($queryStringArr);
+
+unset($queryStringArr["postId"]);
+unset($queryStringArr["isActive"]);
+$returnUrl = http_build_query($queryStringArr);
 
 include '../templates/head.php';
 include '../templates/navigation.php';
@@ -43,12 +51,45 @@ include '../templates/navigation.php';
 <div class="row">
     <div class="col-md-12">
         <div class="col-md-12" style="padding: 0">
-            <div class="form-group">
-                <a href="" class="btn btn-primary">
-                    <i class="fa fa-search"></i>
-                    Tìm kiếm
-                </a>
-            </div>
+            <form action="" method="get">
+                <input type="hidden" name="postId"
+                       value="<?php echo isset($_GET["postId"]) ? $_GET["postId"] : null; ?>">
+                <input type="hidden" name="title"
+                       value="<?php echo isset($_GET["title"]) ? $_GET["title"] : null; ?>">
+                <input type="hidden" name="category"
+                       value="<?php echo isset($_GET["category"]) ? $_GET["category"] : null; ?>">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="">Tình trạng duyệt</label>
+                            <select name="isActive" class="form-control">
+                                <option value="0" <?php echo isset($_GET["isActive"]) ? ($_GET["isActive"] == 0 ? 'selected' : '') : '' ?>>
+                                    Chưa duyệt
+                                </option>
+                                <option value="1" <?php echo isset($_GET["isActive"]) ? ($_GET["isActive"] == 1 ? 'selected' : '') : '' ?>>
+                                    Đã duyệt
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label for="" style="visibility: hidden">a</label>
+                            <div>
+                                <button class="btn btn-primary" type="submit">
+                                    <i class="fa fa-search"></i>
+                                    Tìm kiếm
+                                </button>
+                                <a href="/game-news/app/pages/admin/comment/post.php?<?php echo $returnUrl; ?>"
+                                   class="btn btn-secondary">
+                                    <i class="fa fa-undo"></i>
+                                    Quay lại tìm kiếm
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
         <table class="table table-bordered table-hover valign-middle">
             <thead>
