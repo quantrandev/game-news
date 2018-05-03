@@ -88,10 +88,10 @@ $userRoles = $userService->getRoles(unserialize($_SESSION["user"])["userName"]);
                     </a>
                     <ul class="sidenav-second-level collapse" id="ads">
                         <li>
-                            <a href="navbar.html">Thêm quảng cáo</a>
+                            <a href="/game-news/app/pages/admin/ads/add.php">Thêm quảng cáo</a>
                         </li>
                         <li>
-                            <a href="cards.html">Danh sách quảng cáo</a>
+                            <a href="/game-news/app/pages/admin/ads/list.php">Danh sách quảng cáo</a>
                         </li>
                     </ul>
                 </li>
@@ -139,7 +139,7 @@ $userRoles = $userService->getRoles(unserialize($_SESSION["user"])["userName"]);
                       onclick="document.querySelector('#logoutForm').submit()" id="logoutForm">
                     <input type="hidden" name="function" value="logout">
                     <a class="nav-link">
-                        <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+                        <i class="fa fa-fw fa-sign-out"></i>Đăng xuất</a>
                 </form>
             </li>
         </ul>

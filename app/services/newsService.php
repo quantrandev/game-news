@@ -115,7 +115,7 @@ class NewsService
 
     public function mostViews($offset, $take)
     {
-        $query = "select * from news order by views desc limit " . $take . " offset " . $offset;
+        $query = "select * from news where isActive = 1 order by views desc limit " . $take . " offset " . $offset;
         $stmt = $this->db->prepare($query);
         $stmt->execute();
 
@@ -125,6 +125,19 @@ class NewsService
         }
 
         return $news;
+    }
+
+    public function getComments($id)
+    {
+        $query = "select comments.id, count(*) as count from news left join comments on news.id = comments.postId where news.id = " . $id
+            . " and comments.isActive = 1 "
+            . " having comments.id IS NOT NULL";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+
+        $result = $stmt->fetch();
+
+        return $result["count"];
     }
 
     //update

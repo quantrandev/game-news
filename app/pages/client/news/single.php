@@ -4,8 +4,12 @@ include "../../../services/connection.php";
 include "../../../services/newsService.php";
 include "../../../services/commentService.php";
 include "../../../services/categoryService.php";
+include "../../../services/adsService.php";
 $categoryService = new CategoryService($conn);
 $categories = $categoryService->allActive();
+$adsService = new AdsService($conn);
+$ad2 = $adsService->getByPosition(2);
+$ad3 = $adsService->getByPosition(3);
 
 $newsService = new NewsService($conn);
 $latestNews = $newsService->all(0, 5);

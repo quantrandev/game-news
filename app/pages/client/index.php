@@ -3,12 +3,24 @@
 include "../../services/connection.php";
 include "../../services/newsService.php";
 include "../../services/categoryService.php";
+include "../../services/adsService.php";
 $categoryService = new CategoryService($conn);
 $categories = $categoryService->allActive();
+$adsService = new AdsService($conn);
+$ad2 = $adsService->getByPosition(2);
+$ad3 = $adsService->getByPosition(3);
 
 $newsService = new NewsService($conn);
 $latestNews = $newsService->all(0, 5);
+foreach ($latestNews as &$new) {
+    $new["comments"] = empty($newsService->getComments($new["id"])) ? 0 : $newsService->getComments($new["id"]);
+}
+
 $mostViews = $newsService->mostViews(0, 5);
+foreach ($mostViews as &$new) {
+    $new["comments"] = empty($newsService->getComments($new["id"])) ? 0 : $newsService->getComments($new["id"]);
+}
+
 $news1 = $newsService->getWithCategory(0, 4, $categories[0]["id"]);
 $news2 = $newsService->getWithCategory(0, 4, $categories[1]["id"]);
 $news3 = $newsService->getWithCategory(0, 4, $categories[2]["id"]);
@@ -20,6 +32,9 @@ include "templates/header.php";
 <div class="main-body">
     <div class="wrap">
         <div class="col-md-8 content-left">
+            <div class="ads">
+                <img src="/game-news/assets/<?php echo $ad2["content"]; ?>" alt="">
+            </div>
             <div class="articles">
                 <header>
                     <h3 class="title-head">Tin tức mới nhất</h3>
@@ -34,12 +49,14 @@ include "templates/header.php";
                             <div class="article-title">
                                 <p><?php echo date('d-m-Y - h:i:s', strtotime($new["createdAt"])); ?> <a
                                             class="span_link" href="#"><span
-                                                class="glyphicon glyphicon-comment"></span>0 </a><a class="span_link"
-                                                                                                    href="#"><span
+                                                class="glyphicon glyphicon-comment"></span><?php echo $new["comments"]; ?>
+                                    </a><a class="span_link"
+                                           href="#"><span
                                                 class="glyphicon glyphicon-eye-open"></span><?php echo $new["views"]; ?>
                                     </a></p>
                                 <h5>
-                                    <a class="title" href="/game-news/app/pages/client/news/single.php?id=<?php echo $new["id"]; ?>"><?php echo $new["title"]; ?></a>
+                                    <a class="title"
+                                       href="/game-news/app/pages/client/news/single.php?id=<?php echo $new["id"]; ?>"><?php echo $new["title"]; ?></a>
                                 </h5>
                             </div>
                             <div class="article-text">
@@ -141,7 +158,7 @@ include "templates/header.php";
                 <div class="s-grid-right">
                     <div class="cricket">
                         <header>
-                            <h3 class="title-popular"><?php echo $categories[2]["name"];?></h3>
+                            <h3 class="title-popular"><?php echo $categories[2]["name"]; ?></h3>
                         </header>
                         <div class="c-sports-main">
                             <div class="c-image">
@@ -209,7 +226,7 @@ include "templates/header.php";
                                                            href="/game-news/app/pages/client/news/single.php?id=<?php echo $new["id"]; ?>"><?php echo $new["title"]; ?></a>
                                                         <p><?php echo date('d-m-Y - h:i:s', strtotime($new["createdAt"])); ?>
                                                             <a class="span_link" href="#"><span
-                                                                        class="glyphicon glyphicon-comment"></span>0</a><a
+                                                                        class="glyphicon glyphicon-comment"></span><?php echo $new["comments"];?></a><a
                                                                     class="span_link" href="#"><span
                                                                         class="glyphicon glyphicon-eye-open"></span><?php echo $new["views"]; ?>
                                                             </a>
@@ -244,7 +261,7 @@ include "templates/header.php";
                                                            href="/game-news/app/pages/client/news/single.php?id=<?php echo $new["id"]; ?>"><?php echo $new["title"]; ?></a>
                                                         <p><?php echo date('d-m-Y - h:i:s', strtotime($new["createdAt"])); ?>
                                                             <a class="span_link" href="#"><span
-                                                                        class="glyphicon glyphicon-comment"></span>0</a><a
+                                                                        class="glyphicon glyphicon-comment"></span><?php echo $new["comments"];?></a><a
                                                                     class="span_link" href="#"><span
                                                                         class="glyphicon glyphicon-eye-open"></span><?php echo $new["views"]; ?>
                                                             </a>
@@ -260,6 +277,9 @@ include "templates/header.php";
                         </div>
                     </section>
                 </div>
+            </div>
+            <div class="ads">
+                <img src="/game-news/assets/<?php echo $ad3["content"]; ?>" alt="">
             </div>
             <div class="clearfix"></div>
         </div>
