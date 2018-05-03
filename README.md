@@ -1,14 +1,14 @@
 # game_magazine
 
-ACCOUNT
-id: admin123, password: admin123 (Quản lý người dùng, Duyệt bài, Duyệt bình luận)
-id: dangbai, password: dangbai (Quản lý chuyên mục, Quản lý bài viết)
+ACCOUNT\n
+id: admin123, password: admin123 (Quản lý người dùng, Duyệt bài, Duyệt bình luận)\n
+id: dangbai, password: dangbai (Quản lý chuyên mục, Quản lý bài viết)\n
 -----------------------------------------------------------------------------------
-DATABASE
-142 posts, 5 categories
+DATABASE\n
+142 posts, 5 categories\n
 -----------------------------------------------------------------------------------
-IMAGES
-/assets/images/
+IMAGES\n
+/assets/images/\n
 -----------------------------------------------------------------------------------
-AUTHORIZATION
-các chức năng trong sidebar hiển thị theo quyền người dùng có
+AUTHORIZATION\n
+các chức năng trong sidebar hiển thị theo quyền người dùng có\n
