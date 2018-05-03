@@ -52,12 +52,14 @@ include '../templates/navigation.php';
     <div class="col-md-12">
         <div class="col-md-12" style="padding: 0">
             <form action="" method="get">
-                <input type="hidden" name="postId"
-                       value="<?php echo isset($_GET["postId"]) ? $_GET["postId"] : null; ?>">
-                <input type="hidden" name="title"
-                       value="<?php echo isset($_GET["title"]) ? $_GET["title"] : null; ?>">
-                <input type="hidden" name="category"
-                       value="<?php echo isset($_GET["category"]) ? $_GET["category"] : null; ?>">
+                <?php if (isset($_GET["postId"])): ?>
+                    <input type="hidden" name="postId"
+                           value="<?php echo isset($_GET["postId"]) ? $_GET["postId"] : null; ?>">
+                    <input type="hidden" name="title"
+                           value="<?php echo isset($_GET["title"]) ? $_GET["title"] : null; ?>">
+                    <input type="hidden" name="category"
+                           value="<?php echo isset($_GET["category"]) ? $_GET["category"] : null; ?>">
+                <?php endif; ?>
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group">
@@ -80,11 +82,13 @@ include '../templates/navigation.php';
                                     <i class="fa fa-search"></i>
                                     Tìm kiếm
                                 </button>
-                                <a href="/game-news/app/pages/admin/comment/post.php?<?php echo $returnUrl; ?>"
-                                   class="btn btn-secondary">
-                                    <i class="fa fa-undo"></i>
-                                    Quay lại tìm kiếm
-                                </a>
+                                <?php if (isset($_GET["postId"])): ?>
+                                    <a href="/game-news/app/pages/admin/comment/post.php?<?php echo $returnUrl; ?>"
+                                       class="btn btn-secondary">
+                                        <i class="fa fa-undo"></i>
+                                        Quay lại tìm kiếm
+                                    </a>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>

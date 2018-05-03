@@ -74,7 +74,7 @@ include '../templates/navigation.php';
                             <label for="">Tình trạng duyệt</label>
                             <select name="isActive" class="form-control">
                                 <option value>Chọn</option>
-                                <option value="0" <?php echo isset($_GET["isActive"]) ? ($_GET["isActive"] === 0 ? 'selected' : '') : '' ?>>
+                                <option value="0" <?php echo isset($_GET["isActive"]) ? ($_GET["isActive"] == 0 && $_GET["isActive"] !== "" ? 'selected' : '') : '' ?>>
                                     Chưa duyệt
                                 </option>
                                 <option value="1" <?php echo isset($_GET["isActive"]) ? ($_GET["isActive"] == 1 ? 'selected' : '') : '' ?>>
@@ -205,11 +205,11 @@ include '../templates/footer.php';
 ?>
 
 <script>
-    $(document).on('click', ' . js - delete', function () {
-        let id = $(this).attr('data - id');
+    $(document).on('click', ' .js-delete', function () {
+        let id = $(this).attr('data-id');
         if (confirm('Xóa bài viết được chọn')) {
             $.ajax({
-                url: ' / game - news / app / controllers / news . php',
+                url: ' /game-news/app/controllers/news.php',
                 type: 'post',
                 data: {id: id, function: 'delete'},
                 success: function (res) {
@@ -227,11 +227,11 @@ include '../templates/footer.php';
             })
         }
     });
-    $(document).on('click', ' . js - approve', function () {
-        let id = $(this).attr('data - id');
+    $(document).on('click', ' .js-approve', function () {
+        let id = $(this).attr('data-id');
         if (confirm('Duyệt bài viết được chọn')) {
             $.ajax({
-                url: ' / game - news / app / controllers / news . php',
+                url: '/game-news/app/controllers/news.php',
                 type: 'post',
                 data: {id: id, function: 'approve'},
                 success: function (res) {
@@ -249,13 +249,13 @@ include '../templates/footer.php';
             })
         }
     });
-    $(document).on('click', ' . js - disable - approve', function () {
-        let id = $(this).attr('data - id');
+    $(document).on('click', ' .js-disable-approve', function () {
+        let id = $(this).attr('data-id');
         if (confirm('Hủy duyệt bài viết được chọn')) {
             $.ajax({
-                url: ' / game - news / app / controllers / news . php',
+                url: '/game-news/app/controllers/news.php',
                 type: 'post',
-                data: {id: id, function: 'dis - approve'},
+                data: {id: id, function: 'dis-approve'},
                 success: function (res) {
                     res = JSON.parse(res);
                     if (res.error)
