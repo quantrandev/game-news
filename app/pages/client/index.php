@@ -80,14 +80,19 @@ include "templates/header.php";
                             <a href="/game-news/app/pages/client/news/single.php?id=<?php echo $news1[$i]["id"]; ?>"><img
                                         src="/game-news/assets/<?php echo $news1[$i]["image"]; ?>"
                                         alt="<?php echo $news1[$i]["title"]; ?>"/></a>
-                            <a class="title title-small"
+                            <a title="<?php echo $news1[$i]["title"]; ?>" class="title title-small"
                                href="/game-news/app/pages/client/news/single.php?id=<?php echo $news1[$i]["id"]; ?>"><?php echo strlen($news1[$i]["title"]) > 60 ? mb_substr($news1[$i]["title"], 0, 60) . "..." : $news1[$i]["title"]; ?></a>
-                            <p class="summary">
-                            <p>
-                                <small class="italic"><?php echo date('d-m-Y - h:i:s', strtotime($new["createdAt"])); ?></small>
-                            </p>
-                            <?php echo $news1[$i]["summary"]; ?>
-                            </p>
+                            <div class="summary">
+                                <p>
+                                    <small class="italic"><?php echo date('d-m-Y - h:i:s', strtotime($new["createdAt"])); ?></small>
+                                </p>
+                                <div data-full-summary="<?php echo $news1[$i]["summary"]; ?>">
+                                    <p class="js-display-summary"><?php echo strlen($news1[$i]["summary"]) > 150 ? mb_substr($news1[$i]["summary"], 0, 150) . " ..." : $news1[$i]["summary"]; ?></p>
+                                    <?php if (strlen($news1[$i]["summary"]) > 150): ?>
+                                        <a role="button" class="js-expand-summary">Xem thêm</a>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
                         </div>
                     <?php endfor; ?>
                     <div class="clearfix"></div>
@@ -98,14 +103,19 @@ include "templates/header.php";
                             <a href="/game-news/app/pages/client/news/single.php?id=<?php echo $news1[$i]["id"]; ?>"><img
                                         src="/game-news/assets/<?php echo $news1[$i]["image"]; ?>"
                                         alt="<?php echo $news1[$i]["title"]; ?>"/></a>
-                            <a class="title title-small"
+                            <a title="<?php echo $news1[$i]["title"]; ?>" class="title title-small"
                                href="/game-news/app/pages/client/news/single.php?id=<?php echo $news1[$i]["id"]; ?>"><?php echo strlen($news1[$i]["title"]) > 60 ? mb_substr($news1[$i]["title"], 0, 60) . "..." : $news1[$i]["title"]; ?></a>
-                            <p class="summary">
-                            <p>
-                                <small class="italic"><?php echo date('d-m-Y - h:i:s', strtotime($new["createdAt"])); ?></small>
-                            </p>
-                            <?php echo $news1[$i]["summary"]; ?>
-                            </p>
+                            <div class="summary">
+                                <p>
+                                    <small class="italic"><?php echo date('d-m-Y - h:i:s', strtotime($new["createdAt"])); ?></small>
+                                </p>
+                                <div data-full-summary="<?php echo $news1[$i]["summary"]; ?>">
+                                    <p class="js-display-summary"><?php echo strlen($news1[$i]["summary"]) > 150 ? mb_substr($news1[$i]["summary"], 0, 150) . " ..." : $news1[$i]["summary"]; ?></p>
+                                    <?php if (strlen($news1[$i]["summary"]) > 150): ?>
+                                        <a role="button" class="js-expand-summary">Xem thêm</a>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
                         </div>
                     <?php endfor; ?>
                     <div class="clearfix"></div>
@@ -226,7 +236,8 @@ include "templates/header.php";
                                                            href="/game-news/app/pages/client/news/single.php?id=<?php echo $new["id"]; ?>"><?php echo $new["title"]; ?></a>
                                                         <p><?php echo date('d-m-Y - h:i:s', strtotime($new["createdAt"])); ?>
                                                             <a class="span_link" href="#"><span
-                                                                        class="glyphicon glyphicon-comment"></span><?php echo $new["comments"];?></a><a
+                                                                        class="glyphicon glyphicon-comment"></span><?php echo $new["comments"]; ?>
+                                                            </a><a
                                                                     class="span_link" href="#"><span
                                                                         class="glyphicon glyphicon-eye-open"></span><?php echo $new["views"]; ?>
                                                             </a>
@@ -261,7 +272,8 @@ include "templates/header.php";
                                                            href="/game-news/app/pages/client/news/single.php?id=<?php echo $new["id"]; ?>"><?php echo $new["title"]; ?></a>
                                                         <p><?php echo date('d-m-Y - h:i:s', strtotime($new["createdAt"])); ?>
                                                             <a class="span_link" href="#"><span
-                                                                        class="glyphicon glyphicon-comment"></span><?php echo $new["comments"];?></a><a
+                                                                        class="glyphicon glyphicon-comment"></span><?php echo $new["comments"]; ?>
+                                                            </a><a
                                                                     class="span_link" href="#"><span
                                                                         class="glyphicon glyphicon-eye-open"></span><?php echo $new["views"]; ?>
                                                             </a>
@@ -291,6 +303,16 @@ include "templates/header.php";
 <?php
 include "templates/footer.php";
 ?>
+
+<script>
+
+    $(document).on('click', '.js-expand-summary', function () {
+        let fullsSummary = $(this).closest('div').attr('data-full-summary');
+        $(this).closest('div').find('.js-display-summary').text(fullsSummary);
+        $(this).remove();
+    });
+
+</script>
 
 <?php
 include "templates/end.php";

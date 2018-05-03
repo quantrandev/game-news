@@ -114,3 +114,14 @@ table.valign-middle td {
 .ads img {
     width: 100%;
 }
+
+.summary {
+    position: relative;
+    min-height: 80px;
+}
+
+.js-expand-summary {
+    position: absolute;
+    right: 0;
+    bottom: -20px;
+}
