@@ -5,7 +5,7 @@ include '../../../services/connection.php';
 
 include '../../../services/userService.php';
 include '../../../services/categoryService.php';
-include '../../../services/newsService.php';
+include '../../../services/postService.php';
 $userService = new UserService($conn);
 $categoryService = new CategoryService($conn);
 $categories = $categoryService->all();
@@ -17,9 +17,9 @@ if (!$userService->isAuthorize('Duyệt bình luận'))
 
 $allRoles = $userService->getAllRoles();
 
-$newsService = new NewsService($conn);
-$result = $newsService->search(empty($_GET["page"]) ? 1 : $_GET["page"], 10, $_GET);
-$posts = $result["news"];
+$postService = new PostService($conn);
+$result = $postService->search(empty($_GET["page"]) ? 1 : $_GET["page"], 10, $_GET);
+$posts = $result["posts"];
 $count = $result["count"];
 
 $page = empty($_GET["page"]) ? 1 : $_GET["page"];

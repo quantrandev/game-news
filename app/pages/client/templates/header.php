@@ -1,8 +1,3 @@
-<?php
-
-$ad1 = $adsService->getByPosition(1);
-
-?>
 <!-- header-section-starts-here -->
 <div class="header">
     <div class="header-top">
@@ -22,9 +17,6 @@ $ad1 = $adsService->getByPosition(1);
         </div>
     </div>
     <div class="header-bottom">
-        <div class="ads">
-            <img src="/game-news/assets/<?php echo $ad1["content"]; ?>" alt="">
-        </div>
         <div class="navigation">
             <nav class="navbar navbar-default" role="navigation">
                 <div class="wrap">

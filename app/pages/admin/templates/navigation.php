@@ -77,25 +77,6 @@ $userRoles = $userService->getRoles(unserialize($_SESSION["user"])["userName"]);
                     </ul>
                 </li>
             <?php endif; ?>
-            <?php if (in_array('Quản lý quảng cáo', array_map(function ($value) {
-                return $value["name"];
-            }, $userRoles))): ?>
-                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#ads"
-                       data-parent="#exampleAccordion">
-                        <i class="fa fa-fw fa-image"></i>
-                        <span class="nav-link-text">Quản lý quảng cáo</span>
-                    </a>
-                    <ul class="sidenav-second-level collapse" id="ads">
-                        <li>
-                            <a href="/game-news/app/pages/admin/ads/add.php">Thêm quảng cáo</a>
-                        </li>
-                        <li>
-                            <a href="/game-news/app/pages/admin/ads/list.php">Danh sách quảng cáo</a>
-                        </li>
-                    </ul>
-                </li>
-            <?php endif; ?>
             <?php if (in_array('Duyệt bình luận', array_map(function ($value) {
                 return $value["name"];
             }, $userRoles))): ?>

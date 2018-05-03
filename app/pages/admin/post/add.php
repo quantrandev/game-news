@@ -5,7 +5,7 @@ include '../../../services/connection.php';
 
 include '../../../services/userService.php';
 include '../../../services/categoryService.php';
-include '../../../services/newsService.php';
+include '../../../services/postService.php';
 $userService = new UserService($conn);
 $categoryService = new CategoryService($conn);
 $categories = $categoryService->all();
@@ -17,7 +17,7 @@ if (!$userService->isAuthorize('Quản lý bài viết'))
 
 $allRoles = $userService->getAllRoles();
 
-$newsService = new NewsService($conn);
+$postService = new PostService($conn);
 if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     date_default_timezone_set('Asia/Ho_Chi_Minh');
     $title = $_POST["title"];
@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     if (empty($title) || empty($summary) || empty($categoryId) || empty($content) || empty($author))
         $emptyErrorMessage = "Vui lòng nhập đầy đủ thông tin";
     else {
-        $error = !$newsService->insert(array(
+        $error = !$postService->insert(array(
             "title" => $title,
             "image" => $image,
             "summary" => $summary,

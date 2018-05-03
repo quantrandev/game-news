@@ -1,6 +1,6 @@
 <?php
 
-class NewsService
+class PostService
 {
     public $db;
 
@@ -12,61 +12,61 @@ class NewsService
     //read
     public function all($offset, $take)
     {
-        $query = "select * from news where isActive = 1 order by id desc limit " . $take . " offset " . $offset;
+        $query = "select * from posts where isActive = 1 order by id desc limit " . $take . " offset " . $offset;
         $stmt = $this->db->prepare($query);
         $stmt->execute();
 
-        $news = array();
+        $posts = array();
         while ($row = $stmt->fetch()) {
-            array_push($news, $row);
+            array_push($posts, $row);
         }
 
-        return $news;
+        return $posts;
     }
 
     public function get($id)
     {
-        $query = "select * from news where id = " . $id;
+        $query = "select * from posts where id = " . $id;
         $stmt = $this->db->prepare($query);
         $stmt->execute();
 
-        $news = $stmt->fetch();
-        return $news;
+        $posts = $stmt->fetch();
+        return $posts;
     }
 
     public function getWithCategory($offset, $take, $category)
     {
-        $query = "select * from news where categoryId = " . $category . " and isActive = 1 order by createdAt desc limit " . $take . " offset " . $offset;
+        $query = "select * from posts where categoryId = " . $category . " and isActive = 1 order by createdAt desc limit " . $take . " offset " . $offset;
         $stmt = $this->db->prepare($query);
         $stmt->execute();
 
-        $news = array();
+        $posts = array();
         while ($row = $stmt->fetch()) {
-            array_push($news, $row);
+            array_push($posts, $row);
         }
 
-        return $news;
+        return $posts;
     }
 
     public function getByCategoryWithPaging($page, $pageSize, $category)
     {
-        $query = "select * from news where categoryId = " . $category . " and isActive = 1 order by createdAt desc " .
+        $query = "select * from posts where categoryId = " . $category . " and isActive = 1 order by createdAt desc " .
             "limit " . $pageSize . " offset " . (($page - 1) * $pageSize);
         $stmt = $this->db->prepare($query);
         $stmt->execute();
 
-        $news = array();
+        $posts = array();
         while ($row = $stmt->fetch()) {
-            array_push($news, $row);
+            array_push($posts, $row);
         }
 
-        $query = "select count(*) as count from news where categoryId = " . $category;
+        $query = "select count(*) as count from posts where categoryId = " . $category;
         $stmt = $this->db->prepare($query);
         $stmt->execute();
         $countResult = $stmt->fetch();
 
         return array(
-            "news" => $news,
+            "posts" => $posts,
             "count" => $countResult["count"]
         );
     }
@@ -88,7 +88,7 @@ class NewsService
         } else
             $condition .= "";
 
-        $sql = "select * from news"
+        $sql = "select * from posts"
             . $condition
             . " order by createdAt desc "
             . " limit " . $pageSize . " offset " . (($page - 1) * $pageSize);
@@ -102,34 +102,34 @@ class NewsService
         }
 
         //get count
-        $query = "select count(*) as count from news" . $condition;
+        $query = "select count(*) as count from posts" . $condition;
         $stmt = $this->db->prepare($query);
         $stmt->execute();
         $countResult = $stmt->fetch();
 
         return array(
-            "news" => $result,
+            "posts" => $result,
             "count" => $countResult["count"]
         );
     }
 
     public function mostViews($offset, $take)
     {
-        $query = "select * from news where isActive = 1 order by views desc limit " . $take . " offset " . $offset;
+        $query = "select * from posts where isActive = 1 order by views desc limit " . $take . " offset " . $offset;
         $stmt = $this->db->prepare($query);
         $stmt->execute();
 
-        $news = array();
+        $posts = array();
         while ($row = $stmt->fetch()) {
-            array_push($news, $row);
+            array_push($posts, $row);
         }
 
-        return $news;
+        return $posts;
     }
 
     public function getComments($id)
     {
-        $query = "select comments.id, count(*) as count from news left join comments on news.id = comments.postId where news.id = " . $id
+        $query = "select comments.id, count(*) as count from posts left join comments on posts.id = comments.postId where posts.id = " . $id
             . " and comments.isActive = 1 "
             . " having comments.id IS NOT NULL";
         $stmt = $this->db->prepare($query);
@@ -143,7 +143,7 @@ class NewsService
     //update
     public function update($id, $columns)
     {
-        $sql = "update news set ";
+        $sql = "update posts set ";
 
         if (!empty($columns["title"]))
             $sql .= "title = N'" . $columns["title"] . "',";
@@ -166,19 +166,19 @@ class NewsService
     public function view($id)
     {
         //get views
-        $query = "select views from news where id = " . $id;
+        $query = "select views from posts where id = " . $id;
         $stmt = $this->db->prepare($query);
         $stmt->execute();
         $result = $stmt->fetch();
 
         //update views
-        $query = "update news set views = " . (intval($result["views"]) + 1) . " where id = " . $id;
+        $query = "update posts set views = " . (intval($result["views"]) + 1) . " where id = " . $id;
         $this->db->exec($query);
     }
 
     public function approve($id)
     {
-        $query = "update news set isActive = 1 where id = " . $id;
+        $query = "update posts set isActive = 1 where id = " . $id;
         $result = $this->db->exec($query);
 
         return empty($result) ? false : true;
@@ -186,7 +186,7 @@ class NewsService
 
     public function disableApprove($id)
     {
-        $query = "update news set isActive = 0 where id = " . $id;
+        $query = "update posts set isActive = 0 where id = " . $id;
         $result = $this->db->exec($query);
 
         return empty($result) ? false : true;
@@ -203,7 +203,7 @@ class NewsService
         $author = $data["author"];
         $createdAt = $data["createdAt"];
 
-        $query = "insert into news (title, image, summary, categoryId, content, author, createdAt) values ("
+        $query = "insert into posts (title, image, summary, categoryId, content, author, createdAt) values ("
             . "N'" . $title . "', '" . $image . "', N'" . $summary . "', " . $categoryId . ",N'" . $content . "', N'" . $author . "', '" . $createdAt . "')";
 
         $result = $this->db->exec($query);
@@ -213,7 +213,7 @@ class NewsService
     //delete
     public function delete($id)
     {
-        $query = "delete from news where id = " . $id;
+        $query = "delete from posts where id = " . $id;
         $result = $this->db->exec($query);
         return empty($result) ? false : true;
     }

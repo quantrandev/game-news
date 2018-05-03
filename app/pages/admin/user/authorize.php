@@ -58,12 +58,12 @@ include '../templates/navigation.php';
             ?>
         </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-3">
         <form action="" method="post">
             <input type="hidden" name="userName" value="<?php echo $editedUser->userName; ?>">
             <div class="form-group">
                 <label for="">Phân quyền</label>
-                <select name="role[]" class="form-control" multiple>
+                <select name="role[]" class="form-control multiselect" multiple>
                     <?php foreach ($allRoles as $role): ?>
                         <?php if (in_array($role["id"], array_map(function ($value) {
                             return $value["id"];
@@ -86,7 +86,24 @@ include '../templates/navigation.php';
 <?php
 include '../templates/footer.php';
 ?>
-
+<script>
+    $('.multiselect').multiselect({
+        enableFiltering: false,
+        enableHTML: true,
+        buttonClass: 'btn btn-white btn-info',
+        maxHeight: 300,
+        buttonWidth: '100%',
+        numberDisplayed: 2,
+        nonSelectedText: 'Chọn quyền',
+        templates: {
+            button: '<button type="button" class="multiselect dropdown-toggle" data-toggle="dropdown"><span class="multiselect-selected-text"></span> &nbsp;</button>',
+            ul: '<ul class="multiselect-container dropdown-menu"></ul>',
+            li: '<li><a tabindex="0"><label></label></a></li>',
+            divider: '<li class="multiselect-item divider"></li>',
+            liGroup: '<li class="multiselect-item multiselect-group"><label></label></li>'
+        }
+    });
+</script>
 <?php
 include '../templates/end.php';
 ?>

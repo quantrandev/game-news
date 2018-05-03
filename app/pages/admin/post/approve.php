@@ -5,7 +5,7 @@ include '../../../services/connection.php';
 
 include '../../../services/userService.php';
 include '../../../services/categoryService.php';
-include '../../../services/newsService.php';
+include '../../../services/postService.php';
 $userService = new UserService($conn);
 $categoryService = new CategoryService($conn);
 $categories = $categoryService->all();
@@ -17,10 +17,10 @@ if (!$userService->isAuthorize('Duyệt bài'))
 
 $allRoles = $userService->getAllRoles();
 
-$newsService = new NewsService($conn);
+$postService = new PostService($conn);
 
-$result = $newsService->search(empty($_GET["page"]) ? 1 : $_GET["page"], 10, $_GET);
-$posts = $result["news"];
+$result = $postService->search(empty($_GET["page"]) ? 1 : $_GET["page"], 10, $_GET);
+$posts = $result["posts"];
 $count = $result["count"];
 
 $page = empty($_GET["page"]) ? 1 : $_GET["page"];
@@ -105,7 +105,7 @@ include '../templates/navigation.php';
                 <th style="width: 120px">Tác giả</th>
                 <th style="width: 180px">Ngày đăng</th>
                 <th style="width: 110px">Tình trạng</th>
-                <th style="width: 140px">Công cụ</th>
+                <th style="width: 245px">Công cụ</th>
             </tr>
             </thead>
             <tbody>
@@ -136,6 +136,10 @@ include '../templates/navigation.php';
                                 Hủy duyệt
                             </button>
                         <?php endif; ?>
+                        <a class="btn btn-primary" href="/game-news/app/pages/admin/post/detail.php?id=<?php echo $post["id"] . "&" . $_SERVER["QUERY_STRING"]; ?>">
+                            <i class="fa fa-search"></i>
+                            Chi tiết
+                        </a>
                     </td>
                 </tr>
             <?php endforeach; ?>
@@ -209,7 +213,7 @@ include '../templates/footer.php';
         let id = $(this).attr('data-id');
         if (confirm('Xóa bài viết được chọn')) {
             $.ajax({
-                url: ' /game-news/app/controllers/news.php',
+                url: ' /game-news/app/controllers/posts.php',
                 type: 'post',
                 data: {id: id, function: 'delete'},
                 success: function (res) {
@@ -231,7 +235,7 @@ include '../templates/footer.php';
         let id = $(this).attr('data-id');
         if (confirm('Duyệt bài viết được chọn')) {
             $.ajax({
-                url: '/game-news/app/controllers/news.php',
+                url: '/game-news/app/controllers/posts.php',
                 type: 'post',
                 data: {id: id, function: 'approve'},
                 success: function (res) {
@@ -253,7 +257,7 @@ include '../templates/footer.php';
         let id = $(this).attr('data-id');
         if (confirm('Hủy duyệt bài viết được chọn')) {
             $.ajax({
-                url: '/game-news/app/controllers/news.php',
+                url: '/game-news/app/controllers/posts.php',
                 type: 'post',
                 data: {id: id, function: 'dis-approve'},
                 success: function (res) {

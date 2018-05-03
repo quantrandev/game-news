@@ -1,4 +1,3 @@
-
 <footer class="sticky-footer">
     <div class="container">
         <div class="text-center">
@@ -11,7 +10,8 @@
     <i class="fa fa-angle-up"></i>
 </a>
 <!-- Logout Modal-->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -37,6 +37,7 @@
 <script src="/game-news/assets/admin/vendor/chart.js/Chart.min.js"></script>
 <script src="/game-news/assets/admin/vendor/datatables/jquery.dataTables.js"></script>
 <script src="/game-news/assets/admin/vendor/datatables/dataTables.bootstrap4.js"></script>
+<script src="/game-news/assets/admin/js/bootstrap-multiselect.min.js"></script>
 <!-- Custom scripts for all pages-->
 <script src="/game-news/assets/admin/js/sb-admin.min.js"></script>
 <!-- Custom scripts for this page-->

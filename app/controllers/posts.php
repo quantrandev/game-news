@@ -2,17 +2,17 @@
 
 session_start();
 include '../services/connection.php';
-include '../services/newsService.php';
+include '../services/postService.php';
 
 $requestMethod = $_SERVER["REQUEST_METHOD"];
-$newService = new NewsService($conn);
+$postService = new PostService($conn);
 
 switch ($requestMethod) {
     case 'POST':
         $function = $_POST["function"];
         if ($function == 'delete') {
             $id = $_POST["id"];
-            $error = !$newService->delete($id);
+            $error = !$postService->delete($id);
             if ($error)
                 echo json_encode(array("error" => true));
             else
@@ -20,7 +20,7 @@ switch ($requestMethod) {
         }
         if ($function == 'approve') {
             $id = $_POST["id"];
-            $error = !$newService->approve($id);
+            $error = !$postService->approve($id);
             if ($error)
                 echo json_encode(array("error" => true));
             else
@@ -28,7 +28,7 @@ switch ($requestMethod) {
         }
         if ($function == 'dis-approve') {
             $id = $_POST["id"];
-            $error = !$newService->disableApprove($id);
+            $error = !$postService->disableApprove($id);
             if ($error)
                 echo json_encode(array("error" => true));
             else

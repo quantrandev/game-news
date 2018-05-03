@@ -5,7 +5,7 @@ include '../../../services/connection.php';
 
 include '../../../services/userService.php';
 include '../../../services/categoryService.php';
-include '../../../services/newsService.php';
+include '../../../services/postService.php';
 $userService = new UserService($conn);
 $categoryService = new CategoryService($conn);
 $categories = $categoryService->all();
@@ -17,8 +17,8 @@ if (!$userService->isAuthorize('Quản lý bài viết'))
 
 $allRoles = $userService->getAllRoles();
 
-$newsService = new NewsService($conn);
-$editedNews = $newsService->get($_GET["id"]);
+$postService = new PostService($conn);
+$editedNews = $postService->get($_GET["id"]);
 if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     $id = $_POST["id"];
     $title = $_POST["title"];
@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     if (empty($title) || empty($summary) || empty($categoryId) || empty($content) || empty($author))
         $emptyErrorMessage = "Vui lòng nhập đầy đủ thông tin";
     else {
-        $error = !$newsService->update($id, array(
+        $error = !$postService->update($id, array(
             "title" => $title,
             "image" => $image,
             "summary" => $summary,
@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
             $_SESSION["errorMessage"] = "Có lỗi xảy ra, vui lòng thử lại";
         else {
             $_SESSION["flashMessage"] = "Cập nhật thành công";
-            $editedNews = $newsService->get($_GET["id"]);
+            $editedNews = $postService->get($_GET["id"]);
         }
     }
 }

@@ -1,23 +1,19 @@
 <?php
 
 include "../../../services/connection.php";
-include "../../../services/newsService.php";
+include "../../../services/postService.php";
 include "../../../services/commentService.php";
 include "../../../services/categoryService.php";
-include "../../../services/adsService.php";
 $categoryService = new CategoryService($conn);
 $categories = $categoryService->allActive();
-$adsService = new AdsService($conn);
-$ad2 = $adsService->getByPosition(2);
-$ad3 = $adsService->getByPosition(3);
 
-$newsService = new NewsService($conn);
-$latestNews = $newsService->all(0, 5);
-$mostViews = $newsService->mostViews(0, 5);
+$postService = new PostService($conn);
+$latestNews = $postService->all(0, 5);
+$mostViews = $postService->mostViews(0, 5);
 
 $post = null;
 if (isset($_GET["id"])) {
-    $post = $newsService->get($_GET["id"]);
+    $post = $postService->get($_GET["id"]);
 }
 
 $commentService = new CommentService($conn);
@@ -174,7 +170,7 @@ include "../templates/header.php";
                                             <li class="active"><?php echo $i; ?></li>
                                         <?php else: ?>
                                             <li>
-                                                <a href="<?php echo $_SERVER["PHP_SELF"] . "?" . $queryString . "&page=" . $i. "#comments"; ?>">
+                                                <a href="<?php echo $_SERVER["PHP_SELF"] . "?" . $queryString . "&page=" . $i . "#comments"; ?>">
                                                     <?php echo $i; ?>
                                                 </a>
                                             </li>
@@ -228,21 +224,21 @@ include "../templates/header.php";
                                     <div class="scrollbar" id="style-2">
                                         <div class="force-overflow">
                                             <div class="popular-post-grids">
-                                                <?php foreach ($mostViews as $new): ?>
+                                                <?php foreach ($mostViews as $post): ?>
                                                     <div class="popular-post-grid">
                                                         <div class="post-img">
-                                                            <a href="/game-news/app/pages/client/news/single.php?id=<?php echo $new["id"]; ?>"><img
-                                                                        src="/game-news/assets/<?php echo $new["image"]; ?>"
-                                                                        alt="<?php echo $new["title"]; ?>"/></a>
+                                                            <a href="/game-news/app/pages/client/news/single.php?id=<?php echo $post["id"]; ?>"><img
+                                                                        src="/game-news/assets/<?php echo $post["image"]; ?>"
+                                                                        alt="<?php echo $post["title"]; ?>"/></a>
                                                         </div>
                                                         <div class="post-text">
                                                             <a class="pp-title"
-                                                               href="/game-news/app/pages/client/news/single.php?id=<?php echo $new["id"]; ?>"><?php echo $new["title"]; ?></a>
-                                                            <p><?php echo date('d-m-Y - h:i:s', strtotime($new["createdAt"])); ?>
+                                                               href="/game-news/app/pages/client/news/single.php?id=<?php echo $post["id"]; ?>"><?php echo $post["title"]; ?></a>
+                                                            <p><?php echo date('d-m-Y - h:i:s', strtotime($post["createdAt"])); ?>
                                                                 <a class="span_link" href="#"><span
                                                                             class="glyphicon glyphicon-comment"></span>0</a><a
                                                                         class="span_link" href="#"><span
-                                                                            class="glyphicon glyphicon-eye-open"></span><?php echo $new["views"]; ?>
+                                                                            class="glyphicon glyphicon-eye-open"></span><?php echo $post["views"]; ?>
                                                                 </a>
                                                             </p>
                                                         </div>
@@ -263,21 +259,21 @@ include "../templates/header.php";
                                     <div class="scrollbar" id="style-2">
                                         <div class="force-overflow">
                                             <div class="popular-post-grids">
-                                                <?php foreach ($latestNews as $new): ?>
+                                                <?php foreach ($latestNews as $post): ?>
                                                     <div class="popular-post-grid">
                                                         <div class="post-img">
-                                                            <a href="/game-news/app/pages/client/news/single.php?id=<?php echo $new["id"]; ?>"><img
-                                                                        src="/game-news/assets/<?php echo $new["image"]; ?>"
-                                                                        alt="<?php echo $new["title"]; ?>"/></a>
+                                                            <a href="/game-news/app/pages/client/news/single.php?id=<?php echo $post["id"]; ?>"><img
+                                                                        src="/game-news/assets/<?php echo $post["image"]; ?>"
+                                                                        alt="<?php echo $post["title"]; ?>"/></a>
                                                         </div>
                                                         <div class="post-text">
                                                             <a class="pp-title"
-                                                               href="/game-news/app/pages/client/news/single.php?id=<?php echo $new["id"]; ?>"><?php echo $new["title"]; ?></a>
-                                                            <p><?php echo date('d-m-Y - h:i:s', strtotime($new["createdAt"])); ?>
+                                                               href="/game-news/app/pages/client/news/single.php?id=<?php echo $post["id"]; ?>"><?php echo $post["title"]; ?></a>
+                                                            <p><?php echo date('d-m-Y - h:i:s', strtotime($post["createdAt"])); ?>
                                                                 <a class="span_link" href="#"><span
                                                                             class="glyphicon glyphicon-comment"></span>0</a><a
                                                                         class="span_link" href="#"><span
-                                                                            class="glyphicon glyphicon-eye-open"></span><?php echo $new["views"]; ?>
+                                                                            class="glyphicon glyphicon-eye-open"></span><?php echo $post["views"]; ?>
                                                                 </a>
                                                             </p>
                                                         </div>

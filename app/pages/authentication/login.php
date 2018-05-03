@@ -36,7 +36,7 @@ include '../admin/templates/head.php';
             <div class="form-group">
                 <label for="exampleInputEmail1">Tên đăng nhập</label>
                 <input class="form-control" name="userName" type="text" aria-describedby="emailHelp"
-                       placeholder="Tên đăng nhập">
+                       placeholder="Tên đăng nhập" autofocus>
                 <span class="text-danger"><?php echo $userNameErrorMessage ?></span>
             </div>
             <div class="form-group">

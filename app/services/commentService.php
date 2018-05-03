@@ -111,9 +111,9 @@ class CommentService
 comments.createdAt,
  comments.isActive,
   comments.postId,
-  news.image as postImage, 
-  news.title as postTitle
-  from comments inner join news on news.id = comments.postId "
+  posts.image as postImage, 
+  posts.title as postTitle
+  from comments inner join posts on posts.id = comments.postId "
             . $condition
             . " order by createdAt desc "
             . " limit " . $pageSize . " offset " . (($page - 1) * $pageSize);

@@ -190,7 +190,12 @@ inner join users on user_roles.userId = users.userName where userName = '" . $us
     {
         $query = "delete from users where userName = '" . $userName . "'";
         $result = $this->db->exec($query);
-        return empty($result) ? false : true;
+        $error = empty($result) ? true : false;
+
+        $query = "delete from user_roles where userId = '" . $userName . "'";
+        $this->db->exec($query);
+
+        return !$error;
     }
 
     public function getUser($userName)
