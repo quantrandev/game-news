@@ -77,7 +77,7 @@ include "../templates/header.php";
                                         </a></p>
                                 </div>
                                 <h3 class="list-title"><a title="<?php echo $posts[$i]["title"]; ?>"
-                                            href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts[$i + 1]["id"]; ?>"><?php echo strlen($posts[$i + 1]["title"]) > 50 ? mb_substr($posts[$i + 1]["title"], 0, 50) . " ..." : $posts[$i + 1]["title"]; ?></a>
+                                                          href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts[$i + 1]["id"]; ?>"><?php echo strlen($posts[$i + 1]["title"]) > 50 ? mb_substr($posts[$i + 1]["title"], 0, 50) . " ..." : $posts[$i + 1]["title"]; ?></a>
                                 </h3>
                                 <div class="summary">
                                     <div data-full-summary="<?php echo str_replace("\"", "'", $posts[$i + 1]["summary"]); ?>">
@@ -180,13 +180,13 @@ include "../templates/header.php";
                                                 <?php foreach ($mostViews as $post): ?>
                                                     <div class="popular-post-grid">
                                                         <div class="post-img">
-                                                            <a href="/game-news/app/pages/client/single.php?id=<?php echo $post["id"]; ?>"><img
+                                                            <a href="/game-news/app/pages/client/news/single.php?id=<?php echo $post["id"]; ?>"><img
                                                                         src="/game-news/assets/<?php echo $post["image"]; ?>"
                                                                         alt="<?php echo $post["title"]; ?>"/></a>
                                                         </div>
                                                         <div class="post-text">
                                                             <a class="pp-title"
-                                                               href="/game-news/app/pages/client/single.php?id=<?php echo $post["id"]; ?>"><?php echo $post["title"]; ?></a>
+                                                               href="/game-news/app/pages/client/news/single.php?id=<?php echo $post["id"]; ?>"><?php echo $post["title"]; ?></a>
                                                             <p><?php echo date('d-m-Y - h:i:s', strtotime($post["createdAt"])); ?>
                                                                 <a class="span_link" href="#"><span
                                                                             class="glyphicon glyphicon-comment"></span>0</a><a
@@ -215,13 +215,13 @@ include "../templates/header.php";
                                                 <?php foreach ($latestNews as $post): ?>
                                                     <div class="popular-post-grid">
                                                         <div class="post-img">
-                                                            <a href="/game-news/app/pages/client/single.php?id=<?php echo $post["id"]; ?>"><img
+                                                            <a href="/game-news/app/pages/client/news/single.php?id=<?php echo $post["id"]; ?>"><img
                                                                         src="/game-news/assets/<?php echo $post["image"]; ?>"
                                                                         alt="<?php echo $post["title"]; ?>"/></a>
                                                         </div>
                                                         <div class="post-text">
                                                             <a class="pp-title"
-                                                               href="/game-news/app/pages/client/single.php?id=<?php echo $post["id"]; ?>"><?php echo $post["title"]; ?></a>
+                                                               href="/game-news/app/pages/client/news/single.php?id=<?php echo $post["id"]; ?>"><?php echo $post["title"]; ?></a>
                                                             <p><?php echo date('d-m-Y - h:i:s', strtotime($post["createdAt"])); ?>
                                                                 <a class="span_link" href="#"><span
                                                                             class="glyphicon glyphicon-comment"></span>0</a><a
