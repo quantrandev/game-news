@@ -101,6 +101,7 @@ ul.store-pages li.active {
 
 .response {
     margin-top: 30px;
+    overflow-x: auto;
 }
 
 table.valign-middle td {

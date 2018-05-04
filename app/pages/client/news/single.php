@@ -127,62 +127,64 @@ include "../templates/header.php";
                                 generateComments($topLevelComments[$i], $comments);
                             }
                             ?>
-                            <ul class="store-pages" style="margin-top: 20px;">
-                                <li><span class="text-uppercase">Page:</span></li>
-                                <li class="<?php if ($page == 1) echo 'hide'; ?>">
-                                    <a href="<?php echo $_SERVER["PHP_SELF"] . "?" . $queryString . "&page=" . ($page - 1); ?>">
-                                        <i class="glyphicon glyphicon-chevron-left"></i>
-                                    </a>
-                                </li>
-                                <?php if (ceil($count / 5) < 20): ?>
-                                    <?php for ($i = 1; $i <= ceil($count / 5); $i++): ?>
-                                        <?php if ($page == $i): ?>
-                                            <li class="active"><?php echo $i; ?></li>
-                                        <?php else: ?>
-                                            <li>
-                                                <a href="<?php echo $_SERVER["PHP_SELF"] . "?" . $queryString . "&page=" . $i . "#comments"; ?>">
-                                                    <?php echo $i; ?>
-                                                </a>
-                                            </li>
-                                        <?php endif; ?>
-                                    <?php endfor; ?>
-                                <?php else: ?>
-                                    <?php for ($i = 1; $i <= 5; $i++): ?>
-                                        <?php if ($page == $i): ?>
-                                            <li class="active"><?php echo $i; ?></li>
-                                        <?php else: ?>
-                                            <li>
-                                                <a href="<?php echo $_SERVER["PHP_SELF"] . "?" . $queryString . "&page=" . $i; ?>">
-                                                    <?php echo $i; ?>
-                                                </a>
-                                            </li>
-                                        <?php endif; ?>
-                                    <?php endfor; ?>
-                                    <li class="active">...</li>
-                                    <?php for ($i = 6; $i <= ceil($count / 5) - 5; $i++): ?>
-                                        <?php if ($page == $i): ?>
-                                            <li class="active"><?php echo $i; ?></li>
-                                            <li class="active">...</li>
-                                        <?php endif; ?>
-                                    <?php endfor; ?>
-                                    <?php for ($i = ceil($count / 5) - 4; $i <= ceil($count / 12); $i++): ?>
-                                        <?php if ($page == $i): ?>
-                                            <li class="active"><?php echo $i; ?></li>
-                                        <?php else: ?>
-                                            <li>
-                                                <a href="<?php echo $_SERVER["PHP_SELF"] . "?" . $queryString . "&page=" . $i . "#comments"; ?>">
-                                                    <?php echo $i; ?>
-                                                </a>
-                                            </li>
-                                        <?php endif; ?>
-                                    <?php endfor; ?>
-                                <?php endif; ?>
-                                <li class="<?php if ($page == ceil($count / 5)) echo 'hide'; ?>">
-                                    <a href="<?php echo $_SERVER["PHP_SELF"] . "?" . $queryString . "&page=" . ($page + 1); ?>">
-                                        <i class="glyphicon glyphicon-chevron-right"></i>
-                                    </a>
-                                </li>
-                            </ul>
+                            <?php if ($count > 0): ?>
+                                <ul class="store-pages" style="margin-top: 20px;">
+                                    <li><span class="text-uppercase">Page:</span></li>
+                                    <li class="<?php if ($page == 1) echo 'hide'; ?>">
+                                        <a href="<?php echo $_SERVER["PHP_SELF"] . "?" . $queryString . "&page=" . ($page - 1); ?>">
+                                            <i class="glyphicon glyphicon-chevron-left"></i>
+                                        </a>
+                                    </li>
+                                    <?php if (ceil($count / 5) < 20): ?>
+                                        <?php for ($i = 1; $i <= ceil($count / 5); $i++): ?>
+                                            <?php if ($page == $i): ?>
+                                                <li class="active"><?php echo $i; ?></li>
+                                            <?php else: ?>
+                                                <li>
+                                                    <a href="<?php echo $_SERVER["PHP_SELF"] . "?" . $queryString . "&page=" . $i . "#comments"; ?>">
+                                                        <?php echo $i; ?>
+                                                    </a>
+                                                </li>
+                                            <?php endif; ?>
+                                        <?php endfor; ?>
+                                    <?php else: ?>
+                                        <?php for ($i = 1; $i <= 5; $i++): ?>
+                                            <?php if ($page == $i): ?>
+                                                <li class="active"><?php echo $i; ?></li>
+                                            <?php else: ?>
+                                                <li>
+                                                    <a href="<?php echo $_SERVER["PHP_SELF"] . "?" . $queryString . "&page=" . $i; ?>">
+                                                        <?php echo $i; ?>
+                                                    </a>
+                                                </li>
+                                            <?php endif; ?>
+                                        <?php endfor; ?>
+                                        <li class="active">...</li>
+                                        <?php for ($i = 6; $i <= ceil($count / 5) - 5; $i++): ?>
+                                            <?php if ($page == $i): ?>
+                                                <li class="active"><?php echo $i; ?></li>
+                                                <li class="active">...</li>
+                                            <?php endif; ?>
+                                        <?php endfor; ?>
+                                        <?php for ($i = ceil($count / 5) - 4; $i <= ceil($count / 12); $i++): ?>
+                                            <?php if ($page == $i): ?>
+                                                <li class="active"><?php echo $i; ?></li>
+                                            <?php else: ?>
+                                                <li>
+                                                    <a href="<?php echo $_SERVER["PHP_SELF"] . "?" . $queryString . "&page=" . $i . "#comments"; ?>">
+                                                        <?php echo $i; ?>
+                                                    </a>
+                                                </li>
+                                            <?php endif; ?>
+                                        <?php endfor; ?>
+                                    <?php endif; ?>
+                                    <li class="<?php if ($page == ceil($count / 5)) echo 'hide'; ?>">
+                                        <a href="<?php echo $_SERVER["PHP_SELF"] . "?" . $queryString . "&page=" . ($page + 1); ?>">
+                                            <i class="glyphicon glyphicon-chevron-right"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            <?php endif; ?>
                         </div>
                         <div class="coment-form">
                             <h4>Bình luận về bài viết này</h4>

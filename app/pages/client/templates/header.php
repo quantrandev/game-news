@@ -4,14 +4,8 @@
         <div class="wrap">
             <div class="top-menu">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="index.html">Thông tin tùy ý</a></li>
                 </ul>
-            </div>
-            <div class="num">
-                <p> Call us : 032 2352 782</p>
             </div>
             <div class="clearfix"></div>
         </div>
@@ -34,7 +28,7 @@
 
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="/game-news/app/pages/client/">HOME</a></li>
+                            <li class="active"><a href="/game-news/app/pages/client/"><i class="glyphicon glyphicon-home"></i></a></li>
                             <?php foreach ($categories as $category): ?>
                                 <li>
                                     <a href="/game-news/app/pages/client/news/list.php?id=<?php echo $category["id"]; ?>"><?php echo $category["name"]; ?></a>
