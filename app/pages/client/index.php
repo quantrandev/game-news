@@ -54,13 +54,11 @@ include "templates/header.php";
                             </div>
                             <div class="article-text">
                                 <div class="summary">
-                                    <p>
-                                        <small class="italic"><?php echo date('d-m-Y - h:i:s', strtotime($post["createdAt"])); ?></small>
-                                    </p>
                                     <div>
                                         <p class="js-display-summary"><?php echo strlen($post["summary"]) > 150 ? mb_substr($post["summary"], 0, 150) . " ..." : $post["summary"]; ?></p>
                                     </div>
-                                    <a href="/game-news/app/pages/client/news/single.php?id=<?php echo $post[""];?>" class="pull-right">Xem chi tiết</a>
+                                    <a href="/game-news/app/pages/client/news/single.php?id=<?php echo $post["id"]; ?>"
+                                       class="pull-right">Xem chi tiết</a>
                                 </div>
                                 <div class="clearfix"></div>
                             </div>

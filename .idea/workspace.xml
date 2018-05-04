@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ccb90c92-7133-45c4-8cf5-489a49257692" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/pages/client/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/client/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/client/news/single.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/client/news/single.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/client/templates/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/client/templates/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/client/templates/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/client/templates/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/client/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/client/css/custom.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,8 +16,8 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/pages/client/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="62" column="110" selection-start-line="62" selection-start-column="110" selection-end-line="62" selection-end-column="110" />
+            <state relative-caret-position="199">
+              <caret line="55" column="53" selection-start-line="55" selection-start-column="53" selection-end-line="55" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -157,8 +152,9 @@
     </layout>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="21" />
-    <option name="width" value="768" />
+    <option name="x" value="10" />
+    <option name="y" value="20" />
+    <option name="width" value="1346" />
     <option name="height" value="688" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -175,11 +171,6 @@
               <item name="game-news" type="b2602c69:ProjectViewProjectNode" />
               <item name="game-news" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
-            <path>
-              <item name="game-news" type="b2602c69:ProjectViewProjectNode" />
-              <item name="game-news" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -188,7 +179,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sports-shop-final" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -225,17 +216,18 @@
       <workItem from="1525310652824" duration="7978000" />
       <workItem from="1525333292544" duration="486000" />
       <workItem from="1525350056875" duration="8319000" />
-      <workItem from="1525396033852" duration="1582000" />
+      <workItem from="1525396033852" duration="2332000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81946000" />
+    <option name="totallyTimeSpent" value="82696000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8033981" visible="true" weight="0.21229868" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8631922" visible="true" weight="0.21229868" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
@@ -243,8 +235,8 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info id="Structure" order="1" sideWeight="0.19660194" side_tool="true" visible="true" weight="0.21229868" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32899022" />
+      <window_info id="Structure" order="1" sideWeight="0.13680781" side_tool="true" visible="true" weight="0.21229868" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32899022" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -589,8 +581,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/client/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="62" column="110" selection-start-line="62" selection-start-column="110" selection-end-line="62" selection-end-column="110" />
+        <state relative-caret-position="199">
+          <caret line="55" column="53" selection-start-line="55" selection-start-column="53" selection-end-line="55" selection-end-column="53" />
         </state>
       </provider>
     </entry>
