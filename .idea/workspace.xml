@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ccb90c92-7133-45c4-8cf5-489a49257692" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/pages/client/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/client/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/client/news/single.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/client/news/single.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pages/client/news/list.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/client/news/list.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/client/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/client/css/custom.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,20 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/pages/client/index.php">
+      <file leaf-file-name="list.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/pages/client/news/list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="150" column="52" lean-forward="true" selection-start-line="150" selection-start-column="52" selection-end-line="150" selection-end-column="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="custom.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/assets/client/css/custom.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+            <state relative-caret-position="432">
+              <caret line="78" column="100" selection-start-line="78" selection-start-column="100" selection-end-line="78" selection-end-column="100" />
             </state>
           </provider>
         </entry>
@@ -38,7 +28,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>date</find>
       <find>[&quot;title&quot;], 0, 45</find>
       <find>/game-news/app/pages/news/</find>
       <find>date(</find>
@@ -68,6 +57,7 @@
       <find>news.php</find>
       <find>post.php</find>
       <find>$queryString</find>
+      <find>list-title</find>
     </findStrings>
     <replaceStrings>
       <replace>[&quot;title&quot;], 0, 80</replace>
@@ -131,7 +121,6 @@
         <option value="$PROJECT_DIR$/app/pages/admin/comment/post.php" />
         <option value="$PROJECT_DIR$/app/pages/admin/post/add.php" />
         <option value="$PROJECT_DIR$/app/pages/admin/post/edit.php" />
-        <option value="$PROJECT_DIR$/app/pages/client/news/list.php" />
         <option value="$PROJECT_DIR$/app/pages/authentication/login.php" />
         <option value="$PROJECT_DIR$/app/pages/admin/post/list.php" />
         <option value="$PROJECT_DIR$/app/pages/admin/post/approve.php" />
@@ -149,6 +138,7 @@
         <option value="$PROJECT_DIR$/app/pages/client/news/single.php" />
         <option value="$PROJECT_DIR$/app/pages/client/index.php" />
         <option value="$PROJECT_DIR$/assets/client/css/custom.css" />
+        <option value="$PROJECT_DIR$/app/pages/client/news/list.php" />
       </list>
     </option>
   </component>
@@ -228,12 +218,12 @@
       <workItem from="1525310652824" duration="7978000" />
       <workItem from="1525333292544" duration="486000" />
       <workItem from="1525350056875" duration="8319000" />
-      <workItem from="1525396033852" duration="3853000" />
+      <workItem from="1525396033852" duration="5542000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84217000" />
+    <option name="totallyTimeSpent" value="85906000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -451,13 +441,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/client/news/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="158" column="12" lean-forward="true" selection-start-line="158" selection-start-column="12" selection-end-line="158" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/authentication/login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
@@ -590,17 +573,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/client/index.php">
+    <entry file="file://$PROJECT_DIR$/assets/client/css/custom.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="150" column="52" lean-forward="true" selection-start-line="150" selection-start-column="52" selection-end-line="150" selection-end-column="52" />
+        <state relative-caret-position="360">
+          <caret line="24" column="35" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/client/css/custom.css">
+    <entry file="file://$PROJECT_DIR$/app/pages/client/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+        <state relative-caret-position="1517">
+          <caret line="106" column="19" selection-start-line="106" selection-start-column="19" selection-end-line="106" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/client/news/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="78" column="100" selection-start-line="78" selection-start-column="100" selection-end-line="78" selection-end-column="100" />
         </state>
       </provider>
     </entry>

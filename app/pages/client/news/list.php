@@ -37,17 +37,26 @@ include "../templates/header.php";
                                             src="/game-news/assets/<?php echo $posts[$i]["image"]; ?>"
                                             class="img-responsive" alt="<?php echo $posts[$i]["title"]; ?>"></a>
                                 <div class="blog-poast-info">
-                                    <p class="fdate"><span class="glyphicon glyphicon-time"></span>On Jun 20, 2015 <a
+                                    <p class="fdate"><span
+                                                class="glyphicon glyphicon-time"></span><?php echo date('d-m-Y - h:i:s', strtotime($posts[$i]["createdAt"])); ?>
+                                        <a
                                                 class="span_link1" href="#"><span
                                                     class="glyphicon glyphicon-comment"></span>0 </a><a
                                                 class="span_link1" href="#"><span
                                                     class="glyphicon glyphicon-eye-open"></span><?php echo $posts[$i]["views"]; ?>
                                         </a></p>
                                 </div>
-                                <h3 class="list-title"><a
-                                            href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts[$i]["id"]; ?>"><?php echo strlen($posts[$i]["title"]) > 50 ? mb_substr($posts[$i]["title"], 0, 50) . " ..." : $posts[$i]["title"]; ?></a>
+                                <h3 class="list-title"><a title="<?php echo $posts[$i]["title"]; ?>"
+                                                          href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts[$i]["id"]; ?>"><?php echo strlen($posts[$i]["title"]) > 50 ? mb_substr($posts[$i]["title"], 0, 50) . " ..." : $posts[$i]["title"]; ?></a>
                                 </h3>
-                                <p><?php echo strlen($posts[$i]["summary"]) > 200 ? mb_substr($posts[$i]["summary"], 0, 200) . " ..." : $posts[$i]["summary"]; ?></p>
+                                <div class="summary">
+                                    <div data-full-summary="<?php echo str_replace("\"", "'", $posts[$i]["summary"]); ?>">
+                                        <p class="js-display-summary"><?php echo strlen($posts[$i]["summary"]) > 150 ? mb_substr(str_replace("\"", "'", $posts[$i]["summary"]), 0, 100) . " ..." : str_replace("\"", "'", $posts[$i]["summary"]); ?></p>
+                                        <?php if (strlen($posts[$i]["summary"]) > 150): ?>
+                                            <a role="button" class="js-expand-summary">Xem thêm</a>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
                                 <a class="reu"
                                    href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts[$i]["id"]; ?>"><img
                                             src="images/more.png" alt=""/></a>
@@ -58,17 +67,26 @@ include "../templates/header.php";
                                             src="/game-news/assets/<?php echo $posts[$i + 1]["image"]; ?>"
                                             class="img-responsive" alt="<?php echo $posts[$i + 1]["title"]; ?>"></a>
                                 <div class="blog-poast-info">
-                                    <p class="fdate"><span class="glyphicon glyphicon-time"></span>On Jun 20, 2015 <a
+                                    <p class="fdate"><span
+                                                class="glyphicon glyphicon-time"></span><?php echo date('d-m-Y - h:i:s', strtotime($posts[$i + 1]["createdAt"])); ?>
+                                        <a
                                                 class="span_link1" href="#"><span
                                                     class="glyphicon glyphicon-comment"></span>0 </a><a
                                                 class="span_link1" href="#"><span
                                                     class="glyphicon glyphicon-eye-open"></span><?php echo $posts[$i + 1]["views"]; ?>
                                         </a></p>
                                 </div>
-                                <h3 class="list-title"><a
+                                <h3 class="list-title"><a title="<?php echo $posts[$i]["title"]; ?>"
                                             href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts[$i + 1]["id"]; ?>"><?php echo strlen($posts[$i + 1]["title"]) > 50 ? mb_substr($posts[$i + 1]["title"], 0, 50) . " ..." : $posts[$i + 1]["title"]; ?></a>
                                 </h3>
-                                <p><?php echo strlen($posts[$i + 1]["summary"]) > 200 ? mb_substr($posts[$i + 1]["summary"], 0, 200) . " ..." : $posts[$i + 1]["summary"]; ?></p>
+                                <div class="summary">
+                                    <div data-full-summary="<?php echo str_replace("\"", "'", $posts[$i + 1]["summary"]); ?>">
+                                        <p class="js-display-summary"><?php echo strlen($posts[$i + 1]["summary"]) > 150 ? mb_substr(str_replace("\"", "'", $posts[$i + 1]["summary"]), 0, 100) . " ..." : str_replace("\"", "'", $posts[$i + 1]["summary"]); ?></p>
+                                        <?php if (strlen($posts[$i + 1]["summary"]) > 150): ?>
+                                            <a role="button" class="js-expand-summary">Xem thêm</a>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
                                 <a class="reu"
                                    href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts[$i + 1]["id"]; ?>"><img
                                             src="images/more.png" alt=""/></a>
@@ -233,6 +251,15 @@ include "../templates/header.php";
 <?php
 include "../templates/footer.php";
 ?>
+<script>
+
+    $(document).on('click', '.js-expand-summary', function () {
+        let fullsSummary = $(this).closest('div').attr('data-full-summary');
+        $(this).closest('div').find('.js-display-summary').text(fullsSummary);
+        $(this).remove();
+    });
+
+</script>
 
 <?php
 include "../templates/end.php";

@@ -1,6 +1,6 @@
 @font-face {
     font-family: myFont;
-    src: url("../fonts/BalooBhaina-Regular.ttf");
+    src: url("../fonts/YanoneKaffeesatz-Regular.ttf");
 }
 
 @font-face {
@@ -9,19 +9,22 @@
 }
 
 body {
-    font-size: 13px;
+    font-size: 15px !important;
 }
 
 body, a, h1, h2, h3, h4, h5, h6 {
     font-family: myFont !important;
-    font-weight: lighter;
-    /*font-family: Tahoma !important;*/
 }
 
 p {
     font-family: paragraph !important;
     font-size: 16px;
 }
+
+.accordation_menu input:checked + label, .accordation_menu input:checked + label:hover {
+    font-family: myFont !important;
+}
+
 p.js-display-summary {
     font-size: 14px;
 }
@@ -64,7 +67,7 @@ a.title {
 }
 
 .list-title {
-    font-size: 1.5em !important;
+    font-size: 17px !important;
 }
 
 a.my-thumbnail {

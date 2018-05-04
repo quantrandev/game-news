@@ -106,8 +106,8 @@ include "templates/header.php";
                                 <p>
                                     <small class="italic"><?php echo date('d-m-Y - h:i:s', strtotime($post["createdAt"])); ?></small>
                                 </p>
-                                <div data-full-summary="<?php echo $posts1[$i]["summary"]; ?>">
-                                    <p class="js-display-summary"><?php echo strlen($posts1[$i]["summary"]) > 150 ? mb_substr($posts1[$i]["summary"], 0, 150) . " ..." : $posts1[$i]["summary"]; ?></p>
+                                <div data-full-summary="<?php echo str_replace("\"", "'", $posts1[$i]["summary"]); ?>">
+                                    <p class="js-display-summary"><?php echo strlen($posts1[$i]["summary"]) > 150 ? mb_substr(str_replace("\"", "'", $posts1[$i]["summary"]), 0, 100) . " ..." : str_replace("\"", "'", $posts1[$i]["summary"]); ?></p>
                                     <?php if (strlen($posts1[$i]["summary"]) > 150): ?>
                                         <a role="button" class="js-expand-summary">Xem thêm</a>
                                     <?php endif; ?>
@@ -294,7 +294,10 @@ include "templates/header.php";
 include "templates/footer.php";
 ?>
 
-<script>
+
+<?php
+include "templates/end.php";
+?><script>
 
     $(document).on('click', '.js-expand-summary', function () {
         let fullsSummary = $(this).closest('div').attr('data-full-summary');
@@ -304,6 +307,3 @@ include "templates/footer.php";
 
 </script>
 
-<?php
-include "templates/end.php";
-?>
