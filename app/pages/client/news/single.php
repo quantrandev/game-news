@@ -115,6 +115,7 @@ include "../templates/header.php";
                     <p><b><?php echo $post["author"]; ?></b>
                         - <?php echo date('d/m/Y h:i:s', strtotime($post["createdAt"])); ?></p>
                     <p class="italic m-t-15 m-b-15"><?php echo $post["summary"]; ?></p>
+                    <hr>
                     <div class="last-article">
                         <?php echo $post["content"]; ?>
                         <div class="clearfix"></div>

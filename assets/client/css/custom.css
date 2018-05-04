@@ -1,14 +1,33 @@
 @font-face {
     font-family: myFont;
-    src: url("../fonts/Roboto-Regular.ttf");
+    src: url("../fonts/BalooBhaina-Regular.ttf");
+}
+
+@font-face {
+    font-family: paragraph;
+    src: url("../fonts/Podkova-Medium.ttf");
 }
 
 body {
     font-size: 13px;
 }
 
-body, a, h1, h2, h3, h4, h5, h6, p {
+body, a, h1, h2, h3, h4, h5, h6 {
     font-family: myFont !important;
+    font-weight: lighter;
+    /*font-family: Tahoma !important;*/
+}
+
+p {
+    font-family: paragraph !important;
+    font-size: 16px;
+}
+p.js-display-summary {
+    font-size: 14px;
+}
+
+h3.title-head {
+    text-transform: uppercase !important;
 }
 
 .articles {
