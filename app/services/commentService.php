@@ -22,6 +22,15 @@ class CommentService
         return $comments;
     }
 
+    public function newComments(){
+        $query = "select count(*) as count from comments where isActive = 0";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+
+        $countResult = $stmt->fetch();
+        return $countResult["count"];
+    }
+
     public function getByPost($condition)
     {
         $postQuery = $this->buildPostQuery($condition);

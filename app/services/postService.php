@@ -24,6 +24,15 @@ class PostService
         return $posts;
     }
 
+    public function newPostCount(){
+        $query = "select count(*) as count from posts where isActive = 0";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+
+        $countResult = $stmt->fetch();
+        return $countResult["count"];
+    }
+
     public function get($id)
     {
         $query = "select * from posts where id = " . $id;

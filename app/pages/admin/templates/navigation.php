@@ -15,7 +15,7 @@ $userRoles = $userService->getRoles(unserialize($_SESSION["user"])["userName"]);
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="/game-news/app/pages/admin">
                     <i class="fa fa-fw fa-dashboard"></i>
                     <span class="nav-link-text">Trang quản trị</span>
                 </a>
