@@ -135,7 +135,8 @@ include "templates/header.php";
                                    href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts2[0]["id"] ?>"><?php echo strlen($posts2[0]["title"]) > 60 ? mb_substr($posts2[0]["title"], 0, 60) . "..." : $posts2[0]["title"]; ?></a>
                                 <p class="date"><?php echo date('d-m-Y - h:i:s', strtotime($posts2[0]["createdAt"])); ?></p>
                                 <a class="pull-right"
-                                   href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts2[0]["id"] ?>">Chi tiết</a>
+                                   href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts2[0]["id"] ?>">Chi
+                                    tiết</a>
                                 <div class="clearfix"></div>
                             </div>
                             <div class="clearfix"></div>
@@ -152,7 +153,8 @@ include "templates/header.php";
                                        href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts2[$i]["id"] ?>"><?php echo strlen($posts2[$i]["title"]) > 60 ? mb_substr($posts2[$i]["title"], 0, 60) . "..." : $posts2[$i]["title"]; ?></a>
                                     <p class="date"><?php echo date('d-m-Y - h:i:s', strtotime($posts2[$i]["createdAt"])); ?></p>
                                     <a class="pull-right"
-                                       href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts2[$i]["id"] ?>">Chi tiết</a>
+                                       href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts2[$i]["id"] ?>">Chi
+                                        tiết</a>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="clearfix"></div>
@@ -176,7 +178,8 @@ include "templates/header.php";
                                    href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts3[0]["id"] ?>"><?php echo strlen($posts3[0]["title"]) > 60 ? mb_substr($posts3[0]["title"], 0, 60) . "..." : $posts3[0]["title"]; ?></a>
                                 <p class="date"><?php echo date('d-m-Y - h:i:s', strtotime($posts3[0]["createdAt"])); ?></p>
                                 <a class="pull-right"
-                                   href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts3[0]["id"] ?>">Chi tiết</a>
+                                   href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts3[0]["id"] ?>">Chi
+                                    tiết</a>
                                 <div class="clearfix"></div>
                             </div>
                             <div class="clearfix"></div>
@@ -193,7 +196,8 @@ include "templates/header.php";
                                        href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts3[$i]["id"] ?>"><?php echo strlen($posts3[$i]["title"]) > 60 ? mb_substr($posts3[$i]["title"], 0, 60) . "..." : $posts3[$i]["title"];; ?></a>
                                     <p class="date"><?php echo date('d-m-Y - h:i:s', strtotime($posts3[$i]["createdAt"])); ?></p>
                                     <a class="pull-right"
-                                       href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts3[$i]["id"] ?>">Chi tiết</a>
+                                       href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts3[$i]["id"] ?>">Chi
+                                        tiết</a>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="clearfix"></div>
@@ -207,6 +211,14 @@ include "templates/header.php";
         <div class="col-md-4 side-bar">
             <div class="first_half">
                 <div class="list_vertical">
+                    <form action="/game-news/app/pages/client/news/list.php" method="get">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="title" placeholder="Tìm bài viết">
+                                      <span class="input-group-btn">
+                                        <button class="btn theme-button" type="submit">Tìm kiếm</button>
+                                      </span>
+                        </div>
+                    </form>
                     <section class="accordation_menu">
                         <div>
                             <input id="label-1" name="lida" type="radio" checked/>
@@ -297,7 +309,8 @@ include "templates/footer.php";
 
 <?php
 include "templates/end.php";
-?><script>
+?>
+<script>
 
     $(document).on('click', '.js-expand-summary', function () {
         let fullsSummary = $(this).closest('div').attr('data-full-summary');

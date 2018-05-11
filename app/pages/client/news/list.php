@@ -10,9 +10,13 @@ $postService = new PostService($conn);
 $latestNews = $postService->all(0, 5);
 $mostViews = $postService->mostViews(0, 5);
 
-$result = $postService->getByCategoryWithPaging(empty($_GET["page"]) ? 1 : $_GET["page"], 10, $_GET["id"]);
+$result = $postService->clientSearch(empty($_GET["page"]) ? 1 : $_GET["page"], 10, $_GET);
 $posts = $result["posts"];
 $count = $result["count"];
+
+foreach ($posts as &$post) {
+    $post["comments"] = empty($postService->getComments($post["id"])) ? 0 : $postService->getComments($post["id"]);
+}
 
 $page = empty($_GET["page"]) ? 1 : $_GET["page"];
 $queryStringArr = array();
@@ -29,68 +33,72 @@ include "../templates/header.php";
         <div class="privacy-page">
             <div class="col-md-8 content-left">
                 <div class="fashion">
-                    <?php for ($i = 0; $i < count($posts) - 1; $i += 2): ?>
+                    <?php for ($i = 0; $i < count($posts); $i += 2): ?>
                         <div class="fashion-top">
-                            <div class="fashion-left">
-                                <a class="my-thumbnail"
-                                   href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts[$i]["id"]; ?>"><img
-                                            src="/game-news/assets/<?php echo $posts[$i]["image"]; ?>"
-                                            class="img-responsive" alt="<?php echo $posts[$i]["title"]; ?>"></a>
-                                <div class="blog-poast-info">
-                                    <p class="fdate"><span
-                                                class="glyphicon glyphicon-time"></span><?php echo date('d-m-Y - h:i:s', strtotime($posts[$i]["createdAt"])); ?>
-                                        <a
-                                                class="span_link1" href="#"><span
-                                                    class="glyphicon glyphicon-comment"></span>0 </a><a
-                                                class="span_link1" href="#"><span
-                                                    class="glyphicon glyphicon-eye-open"></span><?php echo $posts[$i]["views"]; ?>
-                                        </a></p>
-                                </div>
-                                <h3 class="list-title"><a title="<?php echo $posts[$i]["title"]; ?>"
-                                                          href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts[$i]["id"]; ?>"><?php echo strlen($posts[$i]["title"]) > 50 ? mb_substr($posts[$i]["title"], 0, 50) . " ..." : $posts[$i]["title"]; ?></a>
-                                </h3>
-                                <div class="summary">
-                                    <div data-full-summary="<?php echo str_replace("\"", "'", $posts[$i]["summary"]); ?>">
-                                        <p class="js-display-summary"><?php echo strlen($posts[$i]["summary"]) > 150 ? mb_substr(str_replace("\"", "'", $posts[$i]["summary"]), 0, 100) . " ..." : str_replace("\"", "'", $posts[$i]["summary"]); ?></p>
-                                        <?php if (strlen($posts[$i]["summary"]) > 150): ?>
-                                            <a role="button" class="js-expand-summary">Xem thêm</a>
-                                        <?php endif; ?>
+                            <?php if (!empty($posts[$i])): ?>
+                                <div class="fashion-left">
+                                    <a class="my-thumbnail"
+                                       href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts[$i]["id"]; ?>"><img
+                                                src="/game-news/assets/<?php echo $posts[$i]["image"]; ?>"
+                                                class="img-responsive" alt="<?php echo $posts[$i]["title"]; ?>"></a>
+                                    <div class="blog-poast-info">
+                                        <p class="fdate"><span
+                                                    class="glyphicon glyphicon-time"></span><?php echo date('d-m-Y - h:i:s', strtotime($posts[$i]["createdAt"])); ?>
+                                            <a
+                                                    class="span_link1" href="#"><span
+                                                        class="glyphicon glyphicon-comment"></span><?php echo $post["comments"]; ?> </a><a
+                                                    class="span_link1" href="#"><span
+                                                        class="glyphicon glyphicon-eye-open"></span><?php echo $posts[$i]["views"]; ?>
+                                            </a></p>
                                     </div>
-                                </div>
-                                <a class="reu"
-                                   href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts[$i]["id"]; ?>"><img
-                                            src="images/more.png" alt=""/></a>
-                            </div>
-                            <div class="fashion-right">
-                                <a class="my-thumbnail"
-                                   href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts[$i + 1]["id"]; ?>"><img
-                                            src="/game-news/assets/<?php echo $posts[$i + 1]["image"]; ?>"
-                                            class="img-responsive" alt="<?php echo $posts[$i + 1]["title"]; ?>"></a>
-                                <div class="blog-poast-info">
-                                    <p class="fdate"><span
-                                                class="glyphicon glyphicon-time"></span><?php echo date('d-m-Y - h:i:s', strtotime($posts[$i + 1]["createdAt"])); ?>
-                                        <a
-                                                class="span_link1" href="#"><span
-                                                    class="glyphicon glyphicon-comment"></span>0 </a><a
-                                                class="span_link1" href="#"><span
-                                                    class="glyphicon glyphicon-eye-open"></span><?php echo $posts[$i + 1]["views"]; ?>
-                                        </a></p>
-                                </div>
-                                <h3 class="list-title"><a title="<?php echo $posts[$i]["title"]; ?>"
-                                                          href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts[$i + 1]["id"]; ?>"><?php echo strlen($posts[$i + 1]["title"]) > 50 ? mb_substr($posts[$i + 1]["title"], 0, 50) . " ..." : $posts[$i + 1]["title"]; ?></a>
-                                </h3>
-                                <div class="summary">
-                                    <div data-full-summary="<?php echo str_replace("\"", "'", $posts[$i + 1]["summary"]); ?>">
-                                        <p class="js-display-summary"><?php echo strlen($posts[$i + 1]["summary"]) > 150 ? mb_substr(str_replace("\"", "'", $posts[$i + 1]["summary"]), 0, 100) . " ..." : str_replace("\"", "'", $posts[$i + 1]["summary"]); ?></p>
-                                        <?php if (strlen($posts[$i + 1]["summary"]) > 150): ?>
-                                            <a role="button" class="js-expand-summary">Xem thêm</a>
-                                        <?php endif; ?>
+                                    <h3 class="list-title"><a title="<?php echo $posts[$i]["title"]; ?>"
+                                                              href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts[$i]["id"]; ?>"><?php echo strlen($posts[$i]["title"]) > 50 ? mb_substr($posts[$i]["title"], 0, 50) . " ..." : $posts[$i]["title"]; ?></a>
+                                    </h3>
+                                    <div class="summary">
+                                        <div data-full-summary="<?php echo str_replace("\"", "'", $posts[$i]["summary"]); ?>">
+                                            <p class="js-display-summary"><?php echo strlen($posts[$i]["summary"]) > 150 ? mb_substr(str_replace("\"", "'", $posts[$i]["summary"]), 0, 100) . " ..." : str_replace("\"", "'", $posts[$i]["summary"]); ?></p>
+                                            <?php if (strlen($posts[$i]["summary"]) > 150): ?>
+                                                <a role="button" class="js-expand-summary">Xem thêm</a>
+                                            <?php endif; ?>
+                                        </div>
                                     </div>
+                                    <a class="reu"
+                                       href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts[$i]["id"]; ?>"><img
+                                                src="images/more.png" alt=""/></a>
                                 </div>
-                                <a class="reu"
-                                   href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts[$i + 1]["id"]; ?>"><img
-                                            src="images/more.png" alt=""/></a>
-                            </div>
+                            <?php endif; ?>
+                            <?php if (!empty($posts[$i + 1])): ?>
+                                <div class="fashion-right">
+                                    <a class="my-thumbnail"
+                                       href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts[$i + 1]["id"]; ?>"><img
+                                                src="/game-news/assets/<?php echo $posts[$i + 1]["image"]; ?>"
+                                                class="img-responsive" alt="<?php echo $posts[$i + 1]["title"]; ?>"></a>
+                                    <div class="blog-poast-info">
+                                        <p class="fdate"><span
+                                                    class="glyphicon glyphicon-time"></span><?php echo date('d-m-Y - h:i:s', strtotime($posts[$i + 1]["createdAt"])); ?>
+                                            <a
+                                                    class="span_link1" href="#"><span
+                                                        class="glyphicon glyphicon-comment"></span><?php echo $post["comments"]; ?> </a><a
+                                                    class="span_link1" href="#"><span
+                                                        class="glyphicon glyphicon-eye-open"></span><?php echo $posts[$i + 1]["views"]; ?>
+                                            </a></p>
+                                    </div>
+                                    <h3 class="list-title"><a title="<?php echo $posts[$i]["title"]; ?>"
+                                                              href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts[$i + 1]["id"]; ?>"><?php echo strlen($posts[$i + 1]["title"]) > 50 ? mb_substr($posts[$i + 1]["title"], 0, 50) . " ..." : $posts[$i + 1]["title"]; ?></a>
+                                    </h3>
+                                    <div class="summary">
+                                        <div data-full-summary="<?php echo str_replace("\"", "'", $posts[$i + 1]["summary"]); ?>">
+                                            <p class="js-display-summary"><?php echo strlen($posts[$i + 1]["summary"]) > 150 ? mb_substr(str_replace("\"", "'", $posts[$i + 1]["summary"]), 0, 100) . " ..." : str_replace("\"", "'", $posts[$i + 1]["summary"]); ?></p>
+                                            <?php if (strlen($posts[$i + 1]["summary"]) > 150): ?>
+                                                <a role="button" class="js-expand-summary">Xem thêm</a>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                    <a class="reu"
+                                       href="/game-news/app/pages/client/news/single.php?id=<?php echo $posts[$i + 1]["id"]; ?>"><img
+                                                src="images/more.png" alt=""/></a>
+                                </div>
+                            <?php endif; ?>
                             <div class="clearfix"></div>
                         </div>
                     <?php endfor; ?>
@@ -153,6 +161,16 @@ include "../templates/header.php";
                 </div>
             </div>
             <div class="col-md-4 side-bar">
+                <div>
+                    <form action="/game-news/app/pages/client/news/list.php" method="get">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="title" placeholder="Tìm bài viết">
+                            <span class="input-group-btn">
+                                        <button class="btn theme-button" type="submit">Tìm kiếm</button>
+                                      </span>
+                        </div>
+                    </form>
+                </div>
                 <div class="first_half">
                     <div class="categories">
                         <header>

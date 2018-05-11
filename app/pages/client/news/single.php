@@ -204,6 +204,16 @@ include "../templates/header.php";
             </div>
             <div class="col-md-4 side-bar">
                 <div class="first_half">
+                    <div>
+                        <form action="/game-news/app/pages/client/news/list.php" method="get">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="title" placeholder="Tìm bài viết">
+                                <span class="input-group-btn">
+                                        <button class="btn theme-button" type="submit">Tìm kiếm</button>
+                                      </span>
+                            </div>
+                        </form>
+                    </div>
                     <div class="categories">
                         <header>
                             <h3 class="side-title-head">Danh mục</h3>

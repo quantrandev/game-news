@@ -71,6 +71,44 @@ class PostService
         );
     }
 
+    public function clientSearch($page, $pageSize, $condition)
+    {
+        $categoryQuery = $this->buildCategoryQuery($condition);
+        $titleQuery = $this->buildTitleQuery($condition);
+        $condition = "";
+        if (!empty($categoryQuery) || !empty($titleQuery)) {
+            $condition .= " where isActive = 1 and "
+                . (empty($titleQuery) ? 'true' : $titleQuery)
+                . " and "
+                . (empty($categoryQuery) ? 'true' : $categoryQuery);
+        } else
+            $condition .= " where isActive = 1";
+
+        $sql = "select * from posts"
+            . $condition
+            . " order by createdAt desc "
+            . " limit " . $pageSize . " offset " . (($page - 1) * $pageSize);
+
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute();
+
+        $result = array();
+        while ($row = $stmt->fetch()) {
+            array_push($result, $row);
+        }
+
+        //get count
+        $query = "select count(*) as count from posts" . $condition;
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $countResult = $stmt->fetch();
+
+        return array(
+            "posts" => $result,
+            "count" => $countResult["count"]
+        );
+    }
+
     public function search($page, $pageSize, $condition)
     {
         $categoryQuery = $this->buildCategoryQuery($condition);
