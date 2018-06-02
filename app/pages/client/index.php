@@ -3,6 +3,11 @@
 include "../../services/connection.php";
 include "../../services/postService.php";
 include "../../services/categoryService.php";
+include "../../services/adService.php";
+
+$adService = new AdService($conn);
+$ad2 = $adService->get(2);
+
 $categoryService = new CategoryService($conn);
 $categories = $categoryService->allActive();
 
@@ -214,7 +219,7 @@ include "templates/header.php";
                     <form action="/game-news/app/pages/client/news/list.php" method="get">
                         <div class="input-group">
                             <input type="text" class="form-control" name="title" placeholder="Tìm bài viết">
-                                      <span class="input-group-btn">
+                            <span class="input-group-btn">
                                         <button class="btn theme-button" type="submit">Tìm kiếm</button>
                                       </span>
                         </div>
@@ -293,6 +298,10 @@ include "templates/header.php";
                             </div>
                         </div>
                     </section>
+
+                    <div class="ad-container">
+                        <img src="/game-news/assets/<?php echo $ad2["content"]; ?>" alt="">
+                    </div>
                 </div>
             </div>
             <div class="clearfix"></div>

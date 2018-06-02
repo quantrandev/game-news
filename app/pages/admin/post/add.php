@@ -12,7 +12,7 @@ $categories = $categoryService->all();
 
 if (!$userService->isAuthenticate())
     header("Location: ../../authentication/login.php");
-if (!$userService->isAuthorize('Quản lý bài viết'))
+if (!$userService->isAuthorize('Quản lý bài viết') && !$userService->isAuthorize('Đăng bài'))
     header("Location: ../../authentication/login.php");
 
 $allRoles = $userService->getAllRoles();

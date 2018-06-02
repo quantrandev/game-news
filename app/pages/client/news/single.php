@@ -4,6 +4,11 @@ include "../../../services/connection.php";
 include "../../../services/postService.php";
 include "../../../services/commentService.php";
 include "../../../services/categoryService.php";
+include "../../../services/adService.php";
+
+$adService = new AdService($conn);
+$ad2 = $adService->get(2);
+
 $categoryService = new CategoryService($conn);
 $categories = $categoryService->allActive();
 
@@ -299,6 +304,10 @@ include "../templates/header.php";
                                 </div>
                             </div>
                         </section>
+
+                        <div class="ad-container">
+                            <img src="/game-news/assets/<?php echo $ad2["content"]; ?>" alt="">
+                        </div>
                     </div>
                 </div>
                 <div class="clearfix"></div>

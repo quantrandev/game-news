@@ -1,3 +1,7 @@
+<?php
+$ad1 = $adService->get(1);
+?>
+
 <!-- header-section-starts-here -->
 <div class="header">
     <div class="header-top">
@@ -25,7 +29,9 @@
 
                     </div>
                     <!--/.navbar-header-->
-
+                    <div class="ad-container">
+                        <img src="/game-news/assets/<?php echo $ad1["content"];?>" alt="">
+                    </div>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <li class="active"><a href="/game-news/app/pages/client/"><i

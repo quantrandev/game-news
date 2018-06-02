@@ -21,8 +21,12 @@ $userRoles = $userService->getRoles(unserialize($_SESSION["user"])["userName"]);
                 </a>
             </li>
             <?php if (in_array('Quản lý bài viết', array_map(function ($value) {
-                return $value["name"];
-            }, $userRoles))): ?>
+                    return $value["name"];
+                }, $userRoles))
+                ||
+                in_array('Đăng bài', array_map(function ($value) {
+                    return $value["name"];
+                }, $userRoles))): ?>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
                     <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#news"
                        data-parent="#exampleAccordion">
@@ -33,9 +37,13 @@ $userRoles = $userService->getRoles(unserialize($_SESSION["user"])["userName"]);
                         <li>
                             <a href="/game-news/app/pages/admin/post/add.php">Thêm bài viết</a>
                         </li>
-                        <li>
-                            <a href="/game-news/app/pages/admin/post/list.php">Danh sách bài viết</a>
-                        </li>
+                        <?php if (in_array('Quản lý bài viết', array_map(function ($value) {
+                            return $value["name"];
+                        }, $userRoles))): ?>
+                            <li>
+                                <a href="/game-news/app/pages/admin/post/list.php">Danh sách bài viết</a>
+                            </li>
+                        <?php endif; ?>
                     </ul>
                 </li>
             <?php endif; ?>
@@ -54,6 +62,25 @@ $userRoles = $userService->getRoles(unserialize($_SESSION["user"])["userName"]);
                         </li>
                         <li>
                             <a href="/game-news/app/pages/admin/category/list.php">Danh sách chuyên mục</a>
+                        </li>
+                    </ul>
+                </li>
+            <?php endif; ?>
+            <?php if (in_array('Quản lý quảng cáo', array_map(function ($value) {
+                return $value["name"];
+            }, $userRoles))): ?>
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#categories"
+                       data-parent="#exampleAccordion">
+                        <i class="fa fa-fw fa-image"></i>
+                        <span class="nav-link-text">Quản lý quảng cáo</span>
+                    </a>
+                    <ul class="sidenav-second-level collapse" id="categories">
+                        <li>
+                            <a href="/game-news/app/pages/admin/ads/add.php">Thêm quảng cáo</a>
+                        </li>
+                        <li>
+                            <a href="/game-news/app/pages/admin/ads/list.php">Danh sách quảng cáo</a>
                         </li>
                     </ul>
                 </li>

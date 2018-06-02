@@ -47,6 +47,9 @@ include '../admin/templates/head.php';
             <div>
                 <span class="text-danger"><?php echo $loginErrorMessage ?></span>
             </div>
+            <div class="form-group">
+                <a href="/game-news/app/pages/authentication/signup.php">Đăng ký tài khoản</a>
+            </div>
             <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
         </form>
     </div>

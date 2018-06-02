@@ -168,3 +168,7 @@ table.valign-middle td {
     -o-transition: .5s all;
     -ms-transition: .5s all;
 }
+
+.ad-container img {
+    width: 100%;
+}
